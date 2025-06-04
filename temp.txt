@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethan Luchs</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="scroll-indicator"></div>
+
+  <!-- Menu Overlay -->
+  <div class="menu-overlay" id="menuOverlay">
+    <ul class="menu-links">
+      <li><a href="#projects">projects</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#about">about</a></li>
+    </ul>
+  </div>
+
+  <!-- Menu Button -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="124" height="84" viewBox="0 0 124 84" fill="none" class="menubutton"
+    id="menuButton">
+    <path
+      d="M0 42C0 35.3726 5.37258 30 12 30H112C118.627 30 124 35.3726 124 42C124 48.6274 118.627 54 112 54H12C5.37259 54 0 48.6274 0 42Z"
+      fill="white" />
+    <path
+      d="M0 12C0 5.37258 5.37258 0 12 0H112C118.627 0 124 5.37258 124 12C124 18.6274 118.627 24 112 24H12C5.37259 24 0 18.6274 0 12Z"
+      fill="white" />
+    <path
+      d="M0 72C0 65.3726 5.37258 60 12 60H77C83.6274 60 89 65.3726 89 72C89 78.6274 83.6274 84 77 84H12C5.37259 84 0 78.6274 0 72Z"
+      fill="white" />
+  </svg>
+
+  <!-- Hero Section -->
+  <!-- Hero Section -->
+  <!-- Replace your SVG with this simpler approach -->
+  <div class="hero-wrapper">
+    <div class="home-title">
+      <h1 class="animated-title">Ethan Luchs</h1>
+    </div>
+  </div>
+
+  <!-- Projects Section with Marching Squares Background -->
+  <p class="section-title fade-in" id="projects">projects</p>
+  <div class="section projects-container">
+    <!-- Canvas for the Marching Squares effect -->
+    <canvas id="marching-squares-canvas" class="projects-bg-canvas"></canvas>
+    <section class="projects-section">
+      <div class="projects-grid">
+        <!-- Project Card 1 -->
+        <div class="project-card">
+          <img src="socialmedia.png" alt="Social Media Project" class="project-image">
+          <h2 class="project-title">
+            <a href="https://github.com/ethanluchs/Social_Media_Project" target="_blank">
+              social media wisdom
+            </a>
+          </h2>
+          <div class="project-details">
+            <p class="project-description">LLM platform for personalized Instagram usage insights.</p>
+            <p class="project-tags">[HTML/CSS] [JavaScript] [Python] [Flask] [Ollama]</p>
+            <div class="project-footer">
+              <span>January 2025 - Present</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 2 -->
+        <div class="project-card">
+          <img src="usability.png" alt="AI Usability Project" class="project-image">
+          <h2 class="project-title">ai-driven usability evaluations</h2>
+          <div class="project-details">
+            <p class="project-description">Undergraduate research analyzing the effectiveness of LLMs for heuristic
+              evaluations.</p>
+            <p class="project-tags">[Data Collection] [Qualitative Data Analysis] [Heuristic Evaluations]</p>
+            <div class="project-footer">
+              <span>January 2025 - Present</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 3 -->
+        <div class="project-card">
+          <img src="wheelchair.png" alt="robotic wheelchair project" class="project-image">
+          <h2 class="project-title">robotic wheelchair navigation</h2>
+          <div class="project-details">
+            <p class="project-description">Development of point-to-point navigation algorithm for a wheelchair in CAD
+              apartment.</p>
+            <p class="project-tags">[C#] [Revit API] [OOP] [VSCode]</p>
+            <div class="project-footer">
+              <span>November - December 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 4 -->
+        <div class="project-card">
+          <img src="study.png" alt="study timer project" class="project-image">
+          <h2 class="project-title">
+            <a href="https://salmon-moss-0c44ef41e.6.azurestaticapps.net/" target="_blank">
+              pomodoro study timer
+            </a>
+          </h2>
+          <div class="project-details">
+            <p class="project-description">Personal project building and deploying a study timer.</p>
+            <p class="project-tags">[React] [Figma] [JavaScript] [HTML/CSS] [Azure]</p>
+            <div class="project-footer">
+              <span>March 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 5 -->
+        <div class="project-card">
+          <img src="research.png" alt="pollution predicting machine learning project" class="project-image">
+          <h2 class="project-title">
+            <a href="https://github.com/ethanluchs/Undergrad_Research" target="_blank">
+              iot-supported pollution monitoring
+            </a>
+          </h2>
+          <div class="project-details">
+            <p class="project-description">Optimizing ML hyperparameters for pollution prediction at construction sites.
+            </p>
+            <p class="project-tags">[Python] [PyTorch] [Matplotlib] [Pandas]</p>
+            <div class="project-footer">
+              <span>September 2024 - November 2024</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Card 6 -->
+        <div class="project-card">
+          <img src="port.png" alt="personal website project" class="project-image">
+          <h2 class="project-title">personal website</h2>
+          <div class="project-details">
+            <p class="project-description">Portfolio site to display skills, experiences.</p>
+            <p class="project-tags">[HTML/CSS] [JavaScript] [anime.js] [Figma]</p>
+            <div class="project-footer">
+              <span>April 2025 - Present</span>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+
+
+        <!-- Skill Section Container -->
+        <p class="section-title fade-in" id="skills">skills</p>
+        <div class="section">
+          <!-- Matrix background container wraps the entire skill section -->
+          <div class="matrix-background-container">
+            <!-- Canvas for the matrix stars effect -->
+            <canvas id="matrix-stars-canvas"></canvas>
+
+            <!-- Skill section content -->
+            <div class="skill-section" id="skills">
+              <!-- Skill Nav List (Left) -->
+              <ul class="skill-nav">
+                <li class="skill-tab" data-skill="frontend">frontend</li>
+                <li class="skill-tab" data-skill="backend">backend</li>
+                <li class="skill-tab" data-skill="UX">UX</li>
+                <li class="skill-tab" data-skill="tools">tools/workflow</li>
+                <li class="skill-tab" data-skill="AI">AI</li>
+              </ul>
+
+              <!-- Skill Cards (Only one shows at a time) -->
+              <div class="skill-cards">
+
+                <!-- Frontend Card -->
+                <div class="skill-card" data-skill-card="frontend">
+                  <h3>frontend</h3>
+                  <div class="skill-row"><span>HTML/CSS</span>
+                    <div class="level l4">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>javascript</span>
+                    <div class="level l3">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>react</span>
+                    <div class="level l4">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>flask</span>
+                    <div class="level l2">
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Backend Card -->
+                <div class="skill-card" data-skill-card="backend">
+                  <h3>backend</h3>
+                  <div class="skill-row"><span>java</span>
+                    <div class="level l4">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>python</span>
+                    <div class="level l3">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>C#</span>
+                    <div class="level l3">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>C</span>
+                    <div class="level l2">
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- UX Card -->
+                <div class="skill-card" data-skill-card="UX">
+                  <h3>UX</h3>
+                  <div class="skill-row"><span>heuristic eval.</span>
+                    <div class="level l2">
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>wireframing</span>
+                    <div class="level l3">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>figma</span>
+                    <div class="level l4">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>prototyping</span>
+                    <div class="level l3">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tools Card -->
+                <div class="skill-card" data-skill-card="tools">
+                  <h3>tools/workflow</h3>
+                  <div class="skill-row"><span>git</span>
+                    <div class="level l3">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>docker</span>
+                    <div class="level l2">
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>azure</span>
+                    <div class="level l2">
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>bash</span>
+                    <div class="level l2">
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- AI Card -->
+                <div class="skill-card" data-skill-card="AI">
+                  <h3>AI</h3>
+                  <div class="skill-row"><span>LLM APIs</span>
+                    <div class="level l3">
+                      <div></div>
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>pytorch</span>
+                    <div class="level l2">
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>pandas</span>
+                    <div class="level l2">
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                  <div class="skill-row"><span>matplotlib</span>
+                    <div class="level l2">
+                      <div></div>
+                      <div></div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <p class="section-title fade-in" id="about">about</p>
+        <div class="section">
+          <div class="about-section">
+            <img src="ethan.png" alt="ethan looking hireable" class="personal-photo" />
+
+            <!-- Text content block -->
+            <div class="about-text">
+              <div class="my-title">design-aware</div>
+              <div class="my-title2">frontend engineer</div>
+
+              <ul class="tag">
+                <li class="item">looking for <span class="highlight">summer 2026</span> internships</li>
+                <li class="item">BS, computer science</li>
+                <li class="item">minor, human computer interaction</li>
+                <li class="item">graduating <span class="highlight">may 2027</span></li>
+              </ul>
+
+              <!-- Link row inside the same column -->
+              <div class="link-row">
+                <a href="https://www.linkedin.com/in/ethanluchs" target=_blank>linkedin</a>
+                <a href="https://github.com/ethanluchs" target=_blank>github</a>
+                <a href="https://www.linkedin.com/in/ethanluchs/overlay/1743448979934/single-media-viewer/?profileId=ACoAAD5Rp2QB1DdHlQL5NFXAEigj2nxUJAKVGCo"
+                  target=_blank>resume</a>
+                <a href="mailto:ethanluchs@vt.edu">email</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- Your main JavaScript -->
+        <script src="script.js"></script>
+
+</body>
+
+</html>
+
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Menu Button */
+.menubutton {
+  position: fixed;
+  top: 22px;
+  left: 20px;
+  z-index: 999;
+  cursor: pointer;
+}
+
+/* Menu Overlay Styles */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.75); /*opacity of menu screen*/
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  display: flex;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s ease;
+}
+
+.menu-overlay.open{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-links {
+  list-style: none;
+  text-align: center;
+}
+
+.menu-links li {
+  margin: 20px 0;
+}
+
+.menu-links a {
+  font-size: 65px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu-links a:hover {
+  color: gray; /* subtle hover effect */
+}
+
+/* Scroll Indicator (optional) */
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background-color: white;
+  width: 0%;
+  z-index: 9999;
+}
+
+/* Hero Section */
+.hero-wrapper {
+  height: 300vh;
+  background: black;
+  position: relative;
+}
+
+.home-title {
+  background-image: url('temp.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 75px;
+  font-weight: 800;
+  text-align: center;
+
+  margin-bottom:120px;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 65px;
+  font-weight: 700;
+  text-align: right;
+  margin: 150px 160px 100px 20px;
+}
+
+/* Section Containers */
+.section {
+  margin-top: 300px;
+  margin-bottom: 300px;
+  position: relative;
+}
+
+/* Section Images */
+.section-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Scrollbar (optional) */
+::-webkit-scrollbar {
+  width: 8px;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 4px;
+}
+
+body:hover ::-webkit-scrollbar {
+  opacity: 1;
+}
+
+.fade-in.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* background-image: url('blue.png');
+  /* background-attachment: fixed;  Old background commented out for animated one */
+}
+
+/* Update your project card styling */
+.project-card {
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.2); /* Very subtle background */
+  border: 2px solid #5C6AC4;
+  overflow: hidden;
+  padding: 0; /* Remove padding */
+  height: 350px; /* Increased fixed height */
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  user-select: none; /* Prevents text selection when interacting with bg animation */
+  border-radius: 5px;
+}
+
+.project-card:hover {
+  border-color: #7586f7;
+  transform: translateY(3px);
+}
+
+/* Keep title visible by default, position it over the image */
+.project-title {
+  color:#fff;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 3;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+/* Make the image fill the card */
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover instead of contain */
+  margin: 0;
+  transition: filter 0.3s ease;
+}
+
+.project-card:hover .project-image {
+  filter: brightness(0.3) blur(2px); /* Darken and blur on hover */
+}
+
+/* Create an overlay that appears on hover */
+.project-details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.project-card:hover .project-details {
+  opacity: 1;
+}
+
+/* Position the footer at the bottom of the overlay */
+.project-footer {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.project-icons svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+/* Skill Section Layout */
+.skill-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 100px 100px;
+  gap: 80px;
+}
+
+/* Tab List (Left Side) */
+.skill-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 65px;
+  font-size: 40px;
+  font-weight: 700;
+  list-style: none;
+  padding-left: 80px;
+  margin-top: 40px;
+}
+
+.skill-tab {
+  cursor: pointer;
+  transition: color 0.7s ease;
+  color: white;
+}
+
+.skill-tab.active {
+  color: #00ff88;
+}
+
+.test-title{
+  margin-bottom: 100px;
+}
+
+/* Skill Cards Container */
+.skill-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  margin: 0 auto;
+  margin-top: 40px;
+  gap: 10px;
+}
+
+/* Individual Card */
+.skill-card {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.85);
+  border: 2px solid #00ff88;
+  padding: 40px 60px;
+  color: white;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 30px;
+  font-size: 24px;
+
+  width: 700px;
+  max-width: 700px;
+  min-height: 420px;
+  border-radius: 12px;
+}
+
+.skill-card.active {
+  display: flex;
+}
+
+.skill-card h3 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* Skill Row Styling */
+.skill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  gap: 40px;
+}
+
+.skill-row span {
+  flex: 1;
+  font-size: 26px;
+  font-weight: 600;
+  text-align: left;
+  text-transform: none;
+}
+
+
+/* Matrix Background Styles */
+.matrix-background-container {
+  position: relative;
+  width: 100%;
+  min-height: 100%; /* Fill the parent container */
+  overflow: hidden;
+  background-color: #000;
+}
+
+#matrix-stars-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Make sure all content inside appears above the canvas */
+.matrix-background-container > *:not(canvas) {
+  position: relative;
+  z-index: 2;
+}
+
+.skill-section {
+  background: transparent;
+  padding: 2rem;
+}
+
+.skill-nav {
+  /* Make text more visible on the dark background */
+  color: #fff;
+}
+
+.skill-card {
+  /* Add some background to the cards to see them better */
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #00FF8F;
+  box-shadow: 0 0 15px rgba(0, 255, 143, 0.3);
+}
+
+/* You might want to adjust these for better contrast on the dark background */
+.skill-tab {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease;
+}
+
+.skill-tab:hover,
+.skill-tab.active {
+  color: #00FF8F;
+}
+
+/* Make skill level indicators match the matrix theme */
+.level div {
+  background-color: #00FF8F;
+  box-shadow: 0 0 8px rgba(0, 255, 143, 0.6);
+}
+
+/* Empty skill indicators */
+.level div:empty {
+  background-color: rgba(0, 255, 143, 0.1);
+  border: 1px solid rgba(0, 255, 143, 0.3);
+  box-shadow: none;
+}
+
+/* Level Dot Styling with Exact Color Progression from Image */
+
+/* Base styling for all level indicators */
+.level {
+  display: flex;
+  gap: 10px;
+}
+
+.level div {
+  width: 50px;
+  height: 45px;
+  border-radius: 6px;
+  background-color: rgba(0, 20, 13, 0.5); /* Very dark green for unfilled */
+  border: 1px solid rgba(0, 100, 70, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Reversed color progression - brightest (left) to darkest (right) */
+
+/* First (brightest) green dot - leftmost */
+.l1 div:nth-child(1),
+.l2 div:nth-child(1),
+.l3 div:nth-child(1),
+.l4 div:nth-child(1) {
+  background-color: #00ff9f; /* Brightest green now first */
+  box-shadow: 0 0 8px rgba(0, 255, 159, 0.8);
+  border: 1px solid #00ff9f;
+}
+
+/* Second green dot (slightly darker) */
+.l2 div:nth-child(2),
+.l3 div:nth-child(2),
+.l4 div:nth-child(2) {
+  background-color: #00d87f; /* Second brightest */
+  box-shadow: 0 0 7px rgba(0, 216, 127, 0.7);
+  border: 1px solid #00d87f;
+}
+
+/* Third green dot (darker) */
+.l3 div:nth-child(3),
+.l4 div:nth-child(3) {
+  background-color: #00995f; /* Third brightest */
+  box-shadow: 0 0 7px rgba(0, 153, 95, 0.6);
+  border: 1px solid #00995f;
+}
+
+/* Fourth green dot (darkest) - rightmost */
+.l4 div:nth-child(4) {
+  background-color: #005a3c; /* Darkest green now last */
+  box-shadow: 0 0 7px rgba(0, 90, 60, 0.6);
+  border: 1px solid #005a3c;
+}
+
+/* Matching animations for each color (repositioned to match) */
+@keyframes glow-pulse-brightest {
+  0% { box-shadow: 0 0 7px rgba(0, 255, 159, 0.5); }
+  50% { box-shadow: 0 0 11px rgba(0, 255, 159, 0.8); }
+  100% { box-shadow: 0 0 7px rgba(0, 255, 159, 0.5); }
+}
+
+@keyframes glow-pulse-bright {
+  0% { box-shadow: 0 0 7px rgba(0, 216, 127, 0.5); }
+  50% { box-shadow: 0 0 10px rgba(0, 216, 127, 0.7); }
+  100% { box-shadow: 0 0 7px rgba(0, 216, 127, 0.5); }
+}
+
+@keyframes glow-pulse-medium {
+  0% { box-shadow: 0 0 7px rgba(0, 153, 95, 0.5); }
+  50% { box-shadow: 0 0 10px rgba(0, 153, 95, 0.7); }
+  100% { box-shadow: 0 0 7px rgba(0, 153, 95, 0.5); }
+}
+
+@keyframes glow-pulse-dark {
+  0% { box-shadow: 0 0 7px rgba(0, 90, 60, 0.5); }
+  50% { box-shadow: 0 0 10px rgba(0, 90, 60, 0.7); }
+  100% { box-shadow: 0 0 7px rgba(0, 90, 60, 0.5); }
+}
+
+/* Apply animations to each color position (reversed) */
+.l1 div:nth-child(1),
+.l2 div:nth-child(1),
+.l3 div:nth-child(1),
+.l4 div:nth-child(1) {
+  animation: glow-pulse-brightest 3s infinite ease-in-out;
+}
+
+/* Optional: Add a subtle hover effect */
+.level div:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.about-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 80px;
+  padding: 80px 120px;
+  background-image: url('purple.png');
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.about-text {
+  flex: 1;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.personal-photo {
+  width: 550px;
+  max-width: 100%;
+  border-radius: 16px;
+  flex-shrink: 0;
+  margin-left: 25px;
+}
+
+/*Adjust text scale */
+.my-title,
+.my-title2 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.my-title2 {
+  color: #C547F6;
+  margin-bottom: 50px;
+}
+
+.tag {
+  font-size: 30px;
+  font-weight: 700;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  margin: 0;
+  padding: 0;
+}
+
+.highlight {
+  color: #C547F6;
+}
+
+.link-row {
+  display: flex;
+  gap: 40px;
+  margin-top: 50px;
+  font-size: 35px;
+  font-weight: 700;
+  flex-wrap: wrap;
+}
+
+.link-row a {
+  color: #C547F6;
+  text-decoration: none;
+  text-shadow: 0 0 45px #C547F6, 0 0 15px #C547F6;
+}
+
+.link-row a:hover {
+  color: #e7aaff;
+  animation: bounce .5s ease-in-out;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
+}
+
+@media (max-width: 1024px) {
+  .about-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 40px;
+    gap: 40px;
+    text-align: center;
+    min-height: unset;
+  }
+
+  .personal-photo {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .about-text {
+    max-width: 90%;
+    align-items: center;
+  }
+
+  .my-title,
+  .my-title2 {
+    font-size: 36px;
+  }
+
+  .tag {
+    font-size: 22px;
+    gap: 30px;
+  }
+
+  .link-row {
+    justify-content: center;
+    gap: 20px;
+    font-size: 16px;
+  }
+}
+
+.section:last-of-type {
+  margin-bottom: 0;
+}
+
+.project-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-title a:hover {
+  text-decoration: underline;
+}
+
+
+.projects-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.projects-bg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.projects-section {
+  position: relative;
+  z-index: 2;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+
+// Scroll Indicator Logic
+const scrollIndicator = document.querySelector('.scroll-indicator');
+
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const scrollPercent = (scrollTop / docHeight) * 100;
+  
+  scrollIndicator.style.width = scrollPercent + '%';
+});
+
+// Menu Button Logic
+const menuButton = document.getElementById('menuButton');
+const menuOverlay = document.getElementById('menuOverlay');
+
+// Toggle menu open/close on button click
+menuButton.addEventListener('click', () => {
+  menuOverlay.classList.toggle('open');
+});
+
+menuOverlay.addEventListener('click', () => {
+  if (event.target === menuOverlay){
+    menuOverlay.classList.remove('open');
+  }
+});
+
+// Close menu when any link inside menu is clicked
+document.querySelectorAll('.menu-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    menuOverlay.classList.remove('open');
+  });
+});
+
+// Scroll-triggered animation for fade-in elements
+const fadeElements = document.querySelectorAll('.fade-in');
+
+function checkFadeIn() {
+  fadeElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) { // 100px before hitting the bottom
+      el.classList.add('active');
+    }
+  });
+}
+
+window.addEventListener('scroll', checkFadeIn);
+
+// Initial check in case user reloads while scrolled down
+checkFadeIn();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const tabs = document.querySelectorAll('.skill-tab');
+  const cards = document.querySelectorAll('.skill-card');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const selected = tab.getAttribute('data-skill');
+
+      // Highlight selected tab
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // Show matching card
+      cards.forEach(card => {
+        if (card.getAttribute('data-skill-card') === selected) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+    });
+  });
+
+  // Default tab
+  tabs[0].click();
+});
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Select all section headers with fade-in class
+  const sectionHeaders = document.querySelectorAll('.section-title.fade-in');
+  
+  if (sectionHeaders.length > 0) {
+    console.log('Found section headers:', sectionHeaders.length);
+    
+    // Create Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log('Section header visible, starting animation:', entry.target.id);
+          
+          // Fade in with slight upward movement
+          anime({
+            targets: entry.target,
+            opacity: [0, 1],
+            translateY: [150, 0],
+            translateX:[-150, 0],
+            duration: 1200,
+            easing: 'easeOutCubic'
+          });
+          
+          // Disconnect observer for this specific header so animation only plays once
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    // Setup initial state for each header
+    sectionHeaders.forEach(header => {
+      // Initialize styles (hidden initially)
+      header.style.opacity = '0';
+      header.style.transform = 'translateY(30px)';
+      
+      // Start observing
+      observer.observe(header);
+    });
+    
+  } else {
+    console.log('No section headers found');
+  }
+});
+
+
+
+
+//PROJECTS MARCHING SQUARES
+
+//The JavaScript code creates a Marching Squares animation that renders 
+// flowing contour lines based on Perlin noise values. These dynamic lines respond to 
+// mouse movements and clicks, creating interactive ripple effects throughout the 
+// background while the algorithm continuously shifts the underlying noise pattern 
+// to produce smooth organic motion.
+
+// Simple Perlin noise implementation
+class SimplexNoise {
+    constructor() {
+        this.p = new Uint8Array(256);
+        for (let i = 0; i < 256; i++) {
+            this.p[i] = i;
+        }
+
+        for (let i = 255; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            const temp = this.p[i];
+            this.p[i] = this.p[j];
+            this.p[j] = temp;
+        }
+    }
+
+    noise(x, y, z) {
+        const X = Math.floor(x) & 255;
+        const Y = Math.floor(y) & 255;
+        const Z = Math.floor(z) & 255;
+        
+        x -= Math.floor(x);
+        y -= Math.floor(y);
+        z -= Math.floor(z);
+        
+        const fx = this.fade(x);
+        const fy = this.fade(y);
+        const fz = this.fade(z);
+        
+        const A = this.p[X] + Y;
+        const AA = this.p[A & 255] + Z;
+        const AB = this.p[(A + 1) & 255] + Z;
+        const B = this.p[(X + 1) & 255] + Y;
+        const BA = this.p[B & 255] + Z;
+        const BB = this.p[(B + 1) & 255] + Z;
+        
+        return this.lerp(fz, 
+            this.lerp(fy, 
+                this.lerp(fx, 
+                    this.grad(this.p[AA & 255], x, y, z),
+                    this.grad(this.p[BA & 255], x - 1, y, z)),
+                this.lerp(fx, 
+                    this.grad(this.p[AB & 255], x, y - 1, z),
+                    this.grad(this.p[BB & 255], x - 1, y - 1, z))),
+            this.lerp(fy, 
+                this.lerp(fx, 
+                    this.grad(this.p[(AA + 1) & 255], x, y, z - 1),
+                    this.grad(this.p[(BA + 1) & 255], x - 1, y, z - 1)),
+                this.lerp(fx, 
+                    this.grad(this.p[(AB + 1) & 255], x, y - 1, z - 1),
+                    this.grad(this.p[(BB + 1) & 255], x - 1, y - 1, z - 1))));
+    }
+
+    fade(t) {
+        return t * t * t * (t * (t * 6 - 15) + 10);
+    }
+
+    lerp(t, a, b) {
+        return a + t * (b - a);
+    }
+
+    grad(hash, x, y, z) {
+        const h = hash & 15;
+        const u = h < 8 ? x : y;
+        const v = h < 4 ? y : h === 12 || h === 14 ? x : z;
+        return ((h & 1) === 0 ? u : -u) + ((h & 2) === 0 ? v : -v);
+    }
+}
+
+class SectionBackgroundEffect {
+    constructor(canvasId, sectionSelector) {
+        this.canvas = document.getElementById(canvasId);
+        this.section = document.querySelector(sectionSelector);
+        if (!this.canvas || !this.section) {
+            console.error(`Canvas or section not found: ${canvasId}, ${sectionSelector}`);
+            return;
+        }
+        this.ctx = this.canvas.getContext('2d');
+        this.noise = new SimplexNoise();
+        this.isVisible = false;
+        this.animationFrame = null;
+
+        // Aurora color scheme
+        this.colors = {
+            base: '#5080FF',
+            highlight: '#80A0FF', 
+            accent: '#3060FF'
+        };
+
+        this.isLowPerformanceMode = false;
+        
+        // Configuration
+        this.config = {
+            maxFPS: 30, //original is 60
+            thresholdIncrement: 12, //original is 5
+            thickLineThresholdMultiple: 3,
+            resolution: 10, //original is 8
+            baseZOffset: 0.0005 //original is 0.0001
+        };
+        
+        this.init();
+    }
+
+    renderAtThreshold() {
+    // In low performance mode, skip every other row and column
+    const skipFactor = this.isLowPerformanceMode ? 2 : 1;
+    
+    for (let y = 0; y < this.inputValues.length - 1; y += skipFactor) {
+        for (let x = 0; x < this.inputValues[y].length - 1; x += skipFactor) {
+            // Check if we need to draw anything in this cell
+            const nw = this.inputValues[y][x];
+            const ne = this.inputValues[y][x + 1];
+            const se = this.inputValues[y + 1][x + 1];
+            const sw = this.inputValues[y + 1][x];
+        }
+      }
+    };
+
+    init() {
+        this.zOffset = 0;
+        this.mousePos = { x: -99, y: -99 };
+        this.mouseDown = false;
+        this.colorBursts = [];
+        
+        this.resize();
+        window.addEventListener('resize', () => this.resize());
+        
+        // Set up intersection observer to only animate when visible
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.isVisible = true;
+                    if (!this.animationFrame) {
+                        this.animate();
+                    }
+                } else {
+                    this.isVisible = false;
+                    if (this.animationFrame) {
+                        cancelAnimationFrame(this.animationFrame);
+                        this.animationFrame = null;
+                    }
+                }
+            });
+        }, options);
+        
+        observer.observe(this.section);
+        
+        // Add event listeners for the canvas only when in its section
+        this.section.addEventListener('mousemove', (e) => {
+            const rect = this.canvas.getBoundingClientRect();
+            this.mousePos = { 
+                x: e.clientX - rect.left, 
+                y: e.clientY - rect.top
+            };
+        });
+
+        this.section.addEventListener('mousedown', (e) => {
+            this.mouseDown = true;
+            const rect = this.canvas.getBoundingClientRect();
+            
+            const burstX = e.clientX - rect.left;
+            const burstY = e.clientY - rect.top;
+            
+            this.colorBursts.push({
+                x: burstX,
+                y: burstY,
+                radius: 0,
+                maxRadius: 100,
+                intensity: 1,
+                color: this.colors.accent
+            });
+        });
+
+        this.section.addEventListener('mouseup', () => {
+            this.mouseDown = false;
+        });
+    }
+
+    resize() {
+        const rect = this.section.getBoundingClientRect();
+        
+        // Set canvas size to section size
+        this.canvas.width = rect.width;
+        this.canvas.height = rect.height;
+        
+        this.cols = Math.floor(rect.width / this.config.resolution) + 1;
+        this.rows = Math.floor(rect.height / this.config.resolution) + 1;
+        
+        // Initialize arrays
+        this.zBoostValues = [];
+        this.colorBoostValues = [];
+        for (let y = 0; y < this.rows; y++) {
+            this.zBoostValues[y] = [];
+            this.colorBoostValues[y] = [];
+            for (let x = 0; x < this.cols; x++) {
+                this.zBoostValues[y][x] = 0;
+                this.colorBoostValues[y][x] = 0;
+            }
+        }
+    }
+
+    animate() {
+        if (!this.isVisible) {
+            this.animationFrame = null;
+            return;
+        }
+        
+        // Clear canvas
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
+        // Update z offset
+        this.zOffset += this.config.baseZOffset;
+        
+        // Update color bursts
+        this.updateColorBursts();
+        
+        // Apply mouse effects
+        if (this.mouseDown) {
+            this.mouseOffset();
+        }
+        
+        // Generate noise
+        this.generateNoise();
+        
+        // Draw lines
+        this.render();
+        
+        // Decay color boost values
+        this.decayColors();
+        
+        // Continue animation
+        this.animationFrame = requestAnimationFrame(() => this.animate());
+    }
+
+    updateColorBursts() {
+        for (let i = this.colorBursts.length - 1; i >= 0; i--) {
+            const burst = this.colorBursts[i];
+            burst.radius += 3;
+            burst.intensity *= 0.98;
+            
+            if (burst.intensity < 0.01) {
+                this.colorBursts.splice(i, 1);
+            } else {
+                // Apply color burst to nearby cells
+                const cellX = Math.floor(burst.x / this.config.resolution);
+                const cellY = Math.floor(burst.y / this.config.resolution);
+                const cellRadius = Math.floor(burst.radius / this.config.resolution);
+                
+                for (let dy = -cellRadius; dy <= cellRadius; dy++) {
+                    for (let dx = -cellRadius; dx <= cellRadius; dx++) {
+                        const x = cellX + dx;
+                        const y = cellY + dy;
+                        if (x >= 0 && x < this.cols && y >= 0 && y < this.rows) {
+                            const dist = Math.sqrt(dx * dx + dy * dy);
+                            if (dist <= cellRadius) {
+                                this.colorBoostValues[y][x] += burst.intensity * (1 - dist / cellRadius);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    mouseOffset() {
+        const x = Math.floor(this.mousePos.x / this.config.resolution);
+        const y = Math.floor(this.mousePos.y / this.config.resolution);
+        
+        if (!this.inputValues[y] || this.inputValues[y][x] === undefined) return;
+        
+        const incrementValue = 0.0025;
+        const radius = 5;
+        
+        for (let i = -radius; i <= radius; i++) {
+            for (let j = -radius; j <= radius; j++) {
+                const distanceSquared = i * i + j * j;
+                const radiusSquared = radius * radius;
+                
+                if (distanceSquared <= radiusSquared && 
+                    this.zBoostValues[y + i] && 
+                    this.zBoostValues[y + i][x + j] !== undefined) {
+                    this.zBoostValues[y + i][x + j] += incrementValue * (1 - distanceSquared / radiusSquared);
+                    this.colorBoostValues[y + i][x + j] += 0.1 * (1 - distanceSquared / radiusSquared);
+                }
+            }
+        }
+    }
+
+    generateNoise() {
+        this.inputValues = [];
+        this.noiseMin = 100;
+        this.noiseMax = 0;
+        
+        for (let y = 0; y < this.rows; y++) {
+            this.inputValues[y] = [];
+            for (let x = 0; x < this.cols; x++) {
+                const noiseValue = this.noise.noise(
+                    x * 0.02, 
+                    y * 0.02, 
+                    this.zOffset + (this.zBoostValues[y][x] || 0)
+                ) * 100;
+                
+                this.inputValues[y][x] = noiseValue;
+                
+                if (noiseValue < this.noiseMin) this.noiseMin = noiseValue;
+                if (noiseValue > this.noiseMax) this.noiseMax = noiseValue;
+                
+                if (this.zBoostValues[y][x] > 0) {
+                    this.zBoostValues[y][x] *= 0.99;
+                }
+            }
+        }
+    }
+
+    getLineColor(x, y) {
+        const colorBoost = this.colorBoostValues[y] && this.colorBoostValues[y][x] ? this.colorBoostValues[y][x] : 0;
+        
+        // Interpolate between base and highlight color based on boost
+        const baseColor = this.colors.base;
+        const highlightColor = colorBoost > 0.3 ? this.colors.accent : this.colors.highlight;
+        
+        // Parse hex colors
+        const base = parseInt(baseColor.slice(1), 16);
+        const highlight = parseInt(highlightColor.slice(1), 16);
+        
+        const baseR = (base >> 16) & 255;
+        const baseG = (base >> 8) & 255;
+        const baseB = base & 255;
+        
+        const highlightR = (highlight >> 16) & 255;
+        const highlightG = (highlight >> 8) & 255;
+        const highlightB = highlight & 255;
+        
+        // Interpolate
+        const t = Math.min(colorBoost * 2, 1);
+        const r = Math.round(baseR + (highlightR - baseR) * t);
+        const g = Math.round(baseG + (highlightG - baseG) * t);
+        const b = Math.round(baseB + (highlightB - baseB) * t);
+        
+        // Add alpha based on color boost
+        const alpha = Math.min(0.3 + colorBoost * 0.7, 1);
+        
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
+
+    render() {
+        const roundedNoiseMin = Math.floor(this.noiseMin / this.config.thresholdIncrement) * this.config.thresholdIncrement;
+        const roundedNoiseMax = Math.ceil(this.noiseMax / this.config.thresholdIncrement) * this.config.thresholdIncrement;
+        
+        for (let threshold = roundedNoiseMin; threshold < roundedNoiseMax; threshold += this.config.thresholdIncrement) {
+            this.currentThreshold = threshold;
+            this.renderAtThreshold();
+        }
+    }
+
+    renderAtThreshold() {
+        for (let y = 0; y < this.inputValues.length - 1; y++) {
+            for (let x = 0; x < this.inputValues[y].length - 1; x++) {
+                // Check if we need to draw anything in this cell
+                const nw = this.inputValues[y][x];
+                const ne = this.inputValues[y][x + 1];
+                const se = this.inputValues[y + 1][x + 1];
+                const sw = this.inputValues[y + 1][x];
+                
+                // Skip if all corners are on the same side of threshold
+                if ((nw > this.currentThreshold && ne > this.currentThreshold && se > this.currentThreshold && sw > this.currentThreshold) ||
+                    (nw < this.currentThreshold && ne < this.currentThreshold && se < this.currentThreshold && sw < this.currentThreshold)) {
+                    continue;
+                }
+                
+                const gridValue = this.binaryToType(
+                    nw > this.currentThreshold ? 1 : 0,
+                    ne > this.currentThreshold ? 1 : 0,
+                    se > this.currentThreshold ? 1 : 0,
+                    sw > this.currentThreshold ? 1 : 0
+                );
+
+                // Set color for this cell based on position
+                this.ctx.strokeStyle = this.getLineColor(x, y);
+                this.ctx.lineWidth = this.currentThreshold % (this.config.thresholdIncrement * this.config.thickLineThresholdMultiple) === 0 ? 4 : 1;
+                
+                this.ctx.beginPath();
+                this.placeLines(gridValue, x, y);
+                this.ctx.stroke();
+            }
+        }
+    }
+
+    placeLines(gridValue, x, y) {
+        const nw = this.inputValues[y][x];
+        const ne = this.inputValues[y][x + 1];
+        const se = this.inputValues[y + 1][x + 1];
+        const sw = this.inputValues[y + 1][x];
+        
+        switch (gridValue) {
+            case 1:
+            case 14:
+                this.line(
+                    [x * this.config.resolution, y * this.config.resolution + this.config.resolution * this.linInterpolate(nw, sw)],
+                    [x * this.config.resolution + this.config.resolution * this.linInterpolate(sw, se), y * this.config.resolution + this.config.resolution]
+                );
+                break;
+            case 2:
+            case 13:
+                this.line(
+                    [x * this.config.resolution + this.config.resolution, y * this.config.resolution + this.config.resolution * this.linInterpolate(ne, se)],
+                    [x * this.config.resolution + this.config.resolution * this.linInterpolate(sw, se), y * this.config.resolution + this.config.resolution]
+                );
+                break;
+            case 3:
+            case 12:
+                this.line(
+                    [x * this.config.resolution, y * this.config.resolution + this.config.resolution * this.linInterpolate(nw, sw)],
+                    [x * this.config.resolution + this.config.resolution, y * this.config.resolution + this.config.resolution * this.linInterpolate(ne, se)]
+                );
+                break;
+            case 4:
+            case 11:
+                this.line(
+                    [x * this.config.resolution + this.config.resolution * this.linInterpolate(nw, ne), y * this.config.resolution],
+                    [x * this.config.resolution + this.config.resolution, y * this.config.resolution + this.config.resolution * this.linInterpolate(ne, se)]
+                );
+                break;
+            case 5:
+                this.line(
+                    [x * this.config.resolution, y * this.config.resolution + this.config.resolution * this.linInterpolate(nw, sw)],
+                    [x * this.config.resolution + this.config.resolution * this.linInterpolate(nw, ne), y * this.config.resolution]
+                );
+                this.line(
+                    [x * this.config.resolution + this.config.resolution * this.linInterpolate(sw, se), y * this.config.resolution + this.config.resolution],
+                    [x * this.config.resolution + this.config.resolution, y * this.config.resolution + this.config.resolution * this.linInterpolate(ne, se)]
+                );
+                break;
+            case 6:
+            case 9:
+                this.line(
+                    [x * this.config.resolution + this.config.resolution * this.linInterpolate(nw, ne), y * this.config.resolution],
+                    [x * this.config.resolution + this.config.resolution * this.linInterpolate(sw, se), y * this.config.resolution + this.config.resolution]
+                );
+                break;
+            case 7:
+            case 8:
+                this.line(
+                    [x * this.config.resolution, y * this.config.resolution + this.config.resolution * this.linInterpolate(nw, sw)],
+                    [x * this.config.resolution + this.config.resolution * this.linInterpolate(nw, ne), y * this.config.resolution]
+                );
+                break;
+            case 10:
+                this.line(
+                    [x * this.config.resolution + this.config.resolution * this.linInterpolate(nw, ne), y * this.config.resolution],
+                    [x * this.config.resolution + this.config.resolution, y * this.config.resolution + this.config.resolution * this.linInterpolate(ne, se)]
+                );
+                this.line(
+                    [x * this.config.resolution, y * this.config.resolution + this.config.resolution * this.linInterpolate(nw, sw)],
+                    [x * this.config.resolution + this.config.resolution * this.linInterpolate(sw, se), y * this.config.resolution + this.config.resolution]
+                );
+                break;
+        }
+    }
+
+    line(from, to) {
+        this.ctx.moveTo(from[0], from[1]);
+        this.ctx.lineTo(to[0], to[1]);
+    }
+
+    linInterpolate(x0, x1, y0 = 0, y1 = 1) {
+        if (x0 === x1) {
+            return 0;
+        }
+        return y0 + ((y1 - y0) * (this.currentThreshold - x0)) / (x1 - x0);
+    }
+
+    binaryToType(nw, ne, se, sw) {
+        return (nw << 3) | (ne << 2) | (se << 1) | sw;
+    }
+
+    decayColors() {
+        for (let y = 0; y < this.rows; y++) {
+            for (let x = 0; x < this.cols; x++) {
+                this.colorBoostValues[y][x] *= 0.95;
+            }
+        }
+    }
+}
+
+// Initialize the background for the projects section on page load
+document.addEventListener('DOMContentLoaded', () => {
+    new SectionBackgroundEffect('marching-squares-canvas', '.projects-container');
+});
+
+// Add this JavaScript to your script.js file
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize the matrix background
+  new MatrixStarsBackground('matrix-stars-canvas');
+  
+  // Skills tab switching functionality
+  const skillTabs = document.querySelectorAll('.skill-tab');
+  const skillCards = document.querySelectorAll('.skill-card');
+  
+  // Set the first tab as active by default if none is active
+  if (!document.querySelector('.skill-tab.active')) {
+    skillTabs[0].classList.add('active');
+    document.querySelector(`.skill-card[data-skill-card="${skillTabs[0].getAttribute('data-skill')}"]`)
+      .classList.add('active');
+  }
+  
+  // Add click event listeners to each tab
+  skillTabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Remove active class from all tabs and cards
+      skillTabs.forEach(t => t.classList.remove('active'));
+      skillCards.forEach(c => c.classList.remove('active'));
+      
+      // Add active class to clicked tab
+      this.classList.add('active');
+      
+      // Show the corresponding skill card
+      const skillType = this.getAttribute('data-skill');
+      document.querySelector(`.skill-card[data-skill-card="${skillType}"]`)
+        .classList.add('active');
+    });
+  });
+});
+
+// Optimized Matrix Stars Background with fewer stars
+
+class MatrixStarsBackground {
+  constructor(canvasId) {
+    this.canvas = document.getElementById(canvasId);
+    if (!this.canvas) {
+      console.error(`Canvas not found: ${canvasId}`);
+      return;
+    }
+    
+    this.ctx = this.canvas.getContext('2d');
+    
+    // Optimized configuration with much lower density
+    this.config = {
+      starColors: ['#00FF8F', '#00E0C2', '#00BFA5', '#009688', '#00796B'],
+      baseStarCount: 150,  // Significantly reduced base count
+      minSize: 6,
+      maxSize: 10,
+      minSpeed: 0.05,
+      maxSpeed: 0.2,      // Reduced max speed for better performance
+      opacity: {min: 0.1, max: 0.7},
+      density: 0.2        // Dramatically reduced density factor
+    };
+    
+    this.stars = [];
+    this.isVisible = false;
+    this.animationFrame = null;
+    
+    this.init();
+  }
+  
+  init() {
+    this.resize();
+    
+    // Throttled resize handler for better performance
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      if (resizeTimeout) clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => this.resize(), 250);
+    });
+    
+    // Set up intersection observer to only animate when visible
+    const options = {
+      root: null,
+      rootMargin: '100px', // Start loading a bit before it's visible
+      threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.isVisible = true;
+          if (!this.animationFrame) {
+            this.animate();
+          }
+        } else {
+          this.isVisible = false;
+          if (this.animationFrame) {
+            cancelAnimationFrame(this.animationFrame);
+            this.animationFrame = null;
+          }
+        }
+      });
+    }, options);
+    
+    // Observe the canvas
+    observer.observe(this.canvas);
+  }
+  
+  resize() {
+    // Get the size of the canvas's parent element
+    const parentRect = this.canvas.parentElement.getBoundingClientRect();
+    
+    // Set canvas size to fill parent
+    this.canvas.width = parentRect.width;
+    this.canvas.height = parentRect.height;
+    
+    // Create stars
+    this.createStars();
+  }
+  
+  createStars() {
+    this.stars = [];
+    
+    // Calculate number of stars based on screen size and density
+    // This gives a much more sparse distribution like in the sample image
+    const area = this.canvas.width * this.canvas.height;
+    const count = Math.floor(this.config.baseStarCount * (area / 500000) * this.config.density);
+    
+    // Ensure a minimum number of stars for visual interest
+    const finalCount = Math.max(count, 150);
+    
+    for (let i = 0; i < finalCount; i++) {
+      // Create stars with random properties
+      const star = {
+        x: Math.random() * this.canvas.width,
+        y: Math.random() * this.canvas.height,
+        size: Math.random() * (this.config.maxSize - this.config.minSize) + this.config.minSize,
+        color: this.config.starColors[Math.floor(Math.random() * this.config.starColors.length)],
+        speed: Math.random() * (this.config.maxSpeed - this.config.minSpeed) + this.config.minSpeed,
+        opacity: Math.random() * (this.config.opacity.max - this.config.opacity.min) + this.config.opacity.min,
+        isSquare: Math.random() > 0.0001
+      };
+      
+      this.stars.push(star);
+    }
+  }
+  
+  animate() {
+    if (!this.isVisible) {
+      this.animationFrame = null;
+      return;
+    }
+    
+    // Clear canvas
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    
+    // Update and draw stars
+    this.updateStars();
+    this.drawStars();
+    
+    // Continue animation with throttled frame rate for better performance
+    this.animationFrame = requestAnimationFrame(() => this.animate());
+  }
+  
+  updateStars() {
+    for (let i = 0; i < this.stars.length; i++) {
+      const star = this.stars[i];
+      
+      // Move star from left to right
+      star.x += star.speed;
+      
+      // Wrap around when star goes off screen
+      if (star.x > this.canvas.width) {
+        star.x = 0;
+        star.y = Math.random() * this.canvas.height;
+        star.size = Math.random() * (this.config.maxSize - this.config.minSize) + this.config.minSize;
+        star.opacity = Math.random() * (this.config.opacity.max - this.config.opacity.min) + this.config.opacity.min;
+      }
+    }
+  }
+  
+  drawStars() {
+    for (let i = 0; i < this.stars.length; i++) {
+      const star = this.stars[i];
+      
+      // Set color and opacity
+      this.ctx.fillStyle = this.hexToRgba(star.color, star.opacity);
+      
+      // Draw star as square or circle based on isSquare property
+      if (star.isSquare) {
+        // Draw square
+        this.ctx.fillRect(star.x, star.y, star.size, star.size);
+      } else {
+        // Draw circle
+        this.ctx.beginPath();
+        this.ctx.arc(star.x, star.y, star.size/2, 0, Math.PI * 2);
+        this.ctx.fill();
+      }
+    }
+  }
+  
+  // Helper function to convert hex color to rgba
+  hexToRgba(hex, opacity) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    
+    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+  }
+}
+
+// Initialize the matrix stars background when the DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+  new MatrixStarsBackground('matrix-stars-canvas');
+});
