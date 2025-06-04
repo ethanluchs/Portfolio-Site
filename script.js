@@ -676,8 +676,8 @@ function interpolateColor(color1, color2, factor) {
 
 function setupSectionColorObserver() {
   const observerOptions = {
-    threshold: [0, 0.1, 0.3, 0.5, 0.7, 0.9], // Multiple thresholds for better detection
-    rootMargin: '-10% 0px -10% 0px' // Trigger when section is more centered
+    threshold: [0, 0.1, 0.3, 0.5, 0.7, 0.9],
+    rootMargin: '-10% 0px -10% 0px'
   };
 
   const observer = new IntersectionObserver((entries) => {
@@ -685,6 +685,7 @@ function setupSectionColorObserver() {
     let mostVisibleEntry = null;
     let highestRatio = 0;
 
+    // Check ALL entries, not just intersecting ones
     entries.forEach(entry => {
       if (entry.intersectionRatio > highestRatio) {
         highestRatio = entry.intersectionRatio;
@@ -702,21 +703,17 @@ function setupSectionColorObserver() {
         
         // Only animate if the color is actually different
         if (currentColor !== newColor) {
-          console.log('Changing background color to:', newColor); // Debug log
+          console.log('Changing background color to:', newColor);
           
           // Setup animation with anime.js
           anime({
             duration: 1000,
             easing: 'easeInOutCubic',
             update: function(anim) {
-              // Get progress (0 to 1)
               const progress = anim.progress / 100;
-              
-              // Calculate interpolated color
               const rgbColor = interpolateColor(currentColor, newColor, progress);
               const hexColor = rgbToHex(rgbColor);
               
-              // Update marching squares colors
               window.backgroundEffectInstance.setLineColor(hexColor);
               window.backgroundEffectInstance.setBurstColor(hexColor);
             }
@@ -738,25 +735,23 @@ function setupSectionColorObserver() {
     sectionsToObserve.forEach(section => {
       const element = document.querySelector(section.selector);
       if (element) {
-        console.log('Setting up observer for:', section.selector, 'with color:', section.color); // Debug log
+        console.log('Setting up observer for:', section.selector, 'with color:', section.color);
         element.setAttribute('data-section-color', section.color);
         observer.observe(element);
-      } else {
-        console.log('Could not find element:', section.selector); // Debug log
       }
     });
 
-    // Also add observer for hero section (default color)
+    // Hero section observer with more aggressive detection
     const heroSection = document.querySelector('.hero-wrapper');
     if (heroSection) {
-      console.log('Setting up hero observer'); // Debug log
       heroSection.setAttribute('data-section-color', '#5080FF');
       
       const heroObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+          // More sensitive detection for hero section
+          if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
             const defaultColor = '#5080FF';
-            console.log('Hero section visible, changing to default color:', defaultColor); // Debug log
+            console.log('Hero section visible, changing to default color:', defaultColor);
             
             if (window.backgroundEffectInstance) {
               const currentColor = window.backgroundEffectInstance.colors.base;
@@ -778,13 +773,16 @@ function setupSectionColorObserver() {
           }
         });
       }, { 
-        threshold: [0.3, 0.5, 0.7],
-        rootMargin: '0px 0px -20% 0px'
+        threshold: [0.1, 0.2, 0.3, 0.5],
+        rootMargin: '0px 0px -10% 0px'
       });
 
       heroObserver.observe(heroSection);
+      
+      // ALSO observe with the main observer
+      observer.observe(heroSection);
     }
-  }, 100); // Small delay to ensure DOM is ready
+  }, 100);
 }
 
 // MODIFIED: Initialize global background effect
@@ -1136,5 +1134,30 @@ function animateAboutEntrance() {
     duration: 400,
     delay: anime.stagger(80, {start: 1200}),
     easing: 'easeOutExpo'
+  });
+
+  
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const video = document.getElementById('heroVideo');
+  const heroIntro = document.getElementById('heroIntro');
+  const menuButton = document.getElementById('menuButton');
+
+  // Show everything immediately
+  anime.set(menuButton, { opacity: 1 });
+  heroIntro.classList.add('active');
+  
+  // Just handle video looping
+  video.addEventListener('ended', () => {
+    video.classList.add('blurred');
+    video.loop = true;
+    video.play();
+  });
+});
+
+function scrollToProjects() {
+  document.getElementById('projects').scrollIntoView({
+    behavior: 'smooth'
   });
 }

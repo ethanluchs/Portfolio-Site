@@ -38,7 +38,23 @@
   <!-- Hero Section -->
   <div class="hero-wrapper">
     <div class="home-title">
-      <h1 class="animated-title">Ethan Luchs</h1>
+      <video class="hero-video" autoplay muted playsinline preload="auto" id="heroVideo">
+        <source src="portfoliovid.mp4" type="video/mp4">
+        <img src="temp.png" alt="Hero background" class="video-fallback">
+      </video>
+
+      <!-- Intro content (hidden initially) -->
+      <div class="hero-intro" id="heroIntro">
+        <h1 class="intro-name">Ethan Luchs</h1>
+        <div class="intro-details">
+          <p class="intro-education">Bs, Computer Science | Minor, HCI</p>
+          <p class="intro-role">Application Developer Intern @ American College of Radiology</p>
+        </div>
+        <button class="explore-btn" onclick="scrollToProjects()">
+          <span>Explore My Work</span>
+          <div class="btn-arrow">↓</div>
+        </button>
+      </div>
     </div>
   </div>
 
@@ -54,7 +70,7 @@
     <div class="section projects-container">
       <section class="projects-section">
         <div class="projects-grid">
-          
+
           <!-- Project Card 1 - Pomodoro Study Timer -->
           <div class="project-card">
             <div class="project-header">
@@ -68,12 +84,13 @@
                 <span class="project-status">Live</span>
               </div>
             </div>
-            
+
             <div class="project-content">
               <p class="project-description">
-                Full-stack study timer application with pomodoro work/break intervals, built with React and deployed on Azure. Features responsive design optimized for mobile and desktop.
+                Full-stack study timer application with pomodoro work/break intervals, built with React and deployed on
+                Azure. Features responsive design optimized for mobile and desktop.
               </p>
-              
+
               <div class="project-highlights">
                 <div class="highlights-title">Key Features</div>
                 <div class="highlight-item">Pomodoro timer intervals (25/5/15 min)</div>
@@ -106,7 +123,8 @@
               </div>
 
               <div class="project-actions">
-                <a href="https://salmon-moss-0c44ef41e.6.azurestaticapps.net" target="_blank" class="action-btn primary">Live Demo</a>
+                <a href="https://salmon-moss-0c44ef41e.6.azurestaticapps.net" target="_blank"
+                  class="action-btn primary">Live Demo</a>
                 <a href="#" class="action-btn">GitHub</a>
               </div>
 
@@ -126,12 +144,13 @@
                 <span class="project-status">Live</span>
               </div>
             </div>
-            
+
             <div class="project-content">
               <p class="project-description">
-                Interactive portfolio website featuring custom marching squares background animation, responsive design, and smooth section transitions. Designed in Figma. Built with vanilla JavaScript and anime.js.
+                Interactive portfolio website featuring custom marching squares background animation, responsive design,
+                and smooth section transitions. Designed in Figma. Built with vanilla JavaScript and anime.js.
               </p>
-              
+
               <div class="project-highlights">
                 <div class="highlights-title">Key Features</div>
                 <div class="highlight-item">Custom marching squares animation</div>
@@ -165,7 +184,7 @@
 
               <div class="project-actions">
                 <a href="#" class="action-btn primary">You're Here!</a>
-                <a href="#" class="action-btn">GitHub</a>
+                <a href="https://github.com/ethanluchs/Portfolio-Site" target="_blank" class="action-btn">GitHub</a>
               </div>
 
               <div class="project-timeline">
@@ -181,19 +200,21 @@
               <img src="greeview.png" alt="GreenView" class="project-image">
               <div class="project-overlay">
                 <h3 class="project-title">
-                  <a href="https://www.figma.com/design/DVFHHJyTZrT1Gw7t8D4LI9/Untitled?node-id=0-1&t=zPLK99Y5Cbao3YSE-1" target="_blank">
+                  <a href="https://www.figma.com/design/DVFHHJyTZrT1Gw7t8D4LI9/Untitled?node-id=0-1&t=zPLK99Y5Cbao3YSE-1"
+                    target="_blank">
                     GreenView
                   </a>
                 </h3>
                 <span class="project-status">Complete</span>
               </div>
             </div>
-            
+
             <div class="project-content">
               <p class="project-description">
-                Complete UX development lifecycle for an educational garden app, from user research through high-fidelity prototyping and usability testing. Comprehensive design process documentation included.
+                Complete UX development lifecycle for an educational garden app, from user research through
+                high-fidelity prototyping and usability testing. Comprehensive design process documentation included.
               </p>
-              
+
               <div class="project-highlights">
                 <div class="highlights-title">UX Process</div>
                 <div class="highlight-item">User interviews & persona development</div>
@@ -204,16 +225,16 @@
 
               <div class="project-metrics">
                 <div class="metric">
-                  <span class="metric-value">8</span>
+                  <span class="metric-value">3</span>
                   <span class="metric-label">User Tests</span>
                 </div>
                 <div class="metric">
-                  <span class="metric-value">25+</span>
+                  <span class="metric-value">6</span>
                   <span class="metric-label">Screens</span>
                 </div>
                 <div class="metric">
-                  <span class="metric-value">3</span>
-                  <span class="metric-label">Iterations</span>
+                  <span class="metric-value">0%</span>
+                  <span class="metric-label">Error Rate</span>
                 </div>
               </div>
 
@@ -226,8 +247,10 @@
               </div>
 
               <div class="project-actions">
-                <a href="https://www.figma.com/proto/DVFHHJyTZrT1Gw7t8D4LI9/Untitled?node-id=0-1&t=nBWwoZK4qb00HORA-1" target="_blank" class="action-btn primary">View Prototype</a>
-                <a href="GreenViewPortfolioReport.pdf" download="GreenViewPortfolioReport.pdf" target="_blank" class="action-btn">Download Report</a>
+                <a href="https://www.figma.com/proto/DVFHHJyTZrT1Gw7t8D4LI9/Untitled?node-id=0-1&t=nBWwoZK4qb00HORA-1"
+                  target="_blank" class="action-btn primary">View Prototype</a>
+                <a href="GreenViewPortfolioReport.pdf" download="GreenViewPortfolioReport.pdf" target="_blank"
+                  class="action-btn">Download Report</a>
               </div>
 
               <div class="project-timeline">
@@ -247,15 +270,16 @@
                     social media wisdom
                   </a>
                 </h3>
-                <span class="project-status">Ongoing</span>
+                <span class="project-status">Complete</span>
               </div>
             </div>
-            
+
             <div class="project-content">
               <p class="project-description">
-                LLM-powered platform for personalized Instagram usage insights. Analyzes user behavior patterns and provides actionable recommendations using local language models via Ollama.
+                LLM-powered platform for personalized Instagram usage insights. Analyzes user behavior patterns and
+                provides actionable recommendations using local language models via Ollama.
               </p>
-              
+
               <div class="project-highlights">
                 <div class="highlights-title">Key Features</div>
                 <div class="highlight-item">Instagram data import & analysis</div>
@@ -270,7 +294,7 @@
                   <span class="metric-label">Backend</span>
                 </div>
                 <div class="metric">
-                  <span class="metric-value">LLM</span>
+                  <span class="metric-value">llama2</span>
                   <span class="metric-label">AI Powered</span>
                 </div>
                 <div class="metric">
@@ -288,8 +312,8 @@
               </div>
 
               <div class="project-actions">
-                <a href="https://github.com/ethanluchs/Social_Media_Project" target="_blank" class="action-btn primary">GitHub</a>
-                <a href="#" class="action-btn">Demo</a>
+                <a href="https://github.com/ethanluchs/Social_Media_Project" target="_blank"
+                  class="action-btn primary">GitHub</a>
               </div>
 
               <div class="project-timeline">
@@ -308,12 +332,13 @@
                 <span class="project-status">Ongoing</span>
               </div>
             </div>
-            
+
             <div class="project-content">
               <p class="project-description">
-                Undergraduate research analyzing the effectiveness of Large Language Models for conducting heuristic evaluations in UX design processes. Comparing AI vs human evaluation accuracy.
+                Undergraduate research analyzing the effectiveness of Large Language Models for conducting heuristic
+                evaluations in UX design processes. Future work includes comparing AI vs human evaluation accuracy.
               </p>
-              
+
               <div class="project-highlights">
                 <div class="highlights-title">Research Focus</div>
                 <div class="highlight-item">LLM evaluation methodology</div>
@@ -324,16 +349,16 @@
 
               <div class="project-metrics">
                 <div class="metric">
-                  <span class="metric-value">50+</span>
+                  <span class="metric-value">885</span>
                   <span class="metric-label">Evaluations</span>
                 </div>
                 <div class="metric">
-                  <span class="metric-value">3</span>
-                  <span class="metric-label">LLM Models</span>
+                  <span class="metric-value">gpt-4o</span>
+                  <span class="metric-label">AI Used</span>
                 </div>
                 <div class="metric">
                   <span class="metric-value">85%</span>
-                  <span class="metric-label">Accuracy</span>
+                  <span class="metric-label">AI Agreement</span>
                 </div>
               </div>
 
@@ -341,13 +366,14 @@
                 <span class="tech-tag">Research Design</span>
                 <span class="tech-tag">Data Analysis</span>
                 <span class="tech-tag">Heuristic Evaluation</span>
-                <span class="tech-tag">LLM APIs</span>
                 <span class="tech-tag">Statistical Analysis</span>
               </div>
 
               <div class="project-actions">
-                <a href="#" class="action-btn primary">Research Proposal</a>
-                <a href="#" class="action-btn">Methodology</a>
+                <a href="LLMUsability.pdf" download="LLMUsability.pdf" target="_blank"
+                  class="action-btn primary">Download Paper</a>
+                <a href="https://github.com/nolanplatt/LLMUsabilityEvaluations" target="_blank"
+                  class="action-btn">GitHub</a>
               </div>
 
               <div class="project-timeline">
@@ -370,27 +396,28 @@
                 <span class="project-status">Complete</span>
               </div>
             </div>
-            
+
             <div class="project-content">
               <p class="project-description">
-                Machine learning research optimizing hyperparameters for pollution prediction at construction sites. Developed predictive models using IoT sensor data and PyTorch neural networks.
+                Machine learning research optimizing hyperparameters for pollution prediction at construction sites.
+                Optimized predictive models using IoT sensor data and developed data analysis with matplotlib.
               </p>
-              
+
               <div class="project-highlights">
                 <div class="highlights-title">Research Focus</div>
-                <div class="highlight-item">IoT sensor data integration</div>
+                <div class="highlight-item">IoT sensor data</div>
                 <div class="highlight-item">PyTorch neural network models</div>
                 <div class="highlight-item">Hyperparameter optimization</div>
-                <div class="highlight-item">Construction site monitoring</div>
+                <div class="highlight-item">Construction pollution monitoring</div>
               </div>
 
               <div class="project-metrics">
                 <div class="metric">
-                  <span class="metric-value">92%</span>
-                  <span class="metric-label">Accuracy</span>
+                  <span class="metric-value">.97</span>
+                  <span class="metric-label">R-Squared</span>
                 </div>
                 <div class="metric">
-                  <span class="metric-value">1000+</span>
+                  <span class="metric-value">500k+</span>
                   <span class="metric-label">Data Points</span>
                 </div>
                 <div class="metric">
@@ -404,17 +431,16 @@
                 <span class="tech-tag">PyTorch</span>
                 <span class="tech-tag">Pandas</span>
                 <span class="tech-tag">Matplotlib</span>
-                <span class="tech-tag">IoT Sensors</span>
               </div>
 
               <div class="project-actions">
-                <a href="https://github.com/ethanluchs/Undergrad_Research" target="_blank" class="action-btn primary">GitHub</a>
-                <a href="#" class="action-btn">Research Paper</a>
+                <a href="https://github.com/ethanluchs/Undergrad_Research" target="_blank"
+                  class="action-btn primary">GitHub</a>
               </div>
 
               <div class="project-timeline">
                 <span>September - November 2024</span>
-                <span>Research Project</span>
+                <span>Undergrad Research</span>
               </div>
             </div>
           </div>
@@ -428,18 +454,19 @@
                 <span class="project-status">Complete</span>
               </div>
             </div>
-            
+
             <div class="project-content">
               <p class="project-description">
-                Development of point-to-point navigation algorithm for autonomous wheelchair movement in CAD apartment environments. Integrated with Revit API for spatial awareness and pathfinding.
+                Development of point-to-point navigation algorithm for autonomous wheelchair movement in CAD apartment
+                environments. Integrated with Revit API for spatial awareness and pathfinding.
               </p>
-              
+
               <div class="project-highlights">
                 <div class="highlights-title">Key Features</div>
                 <div class="highlight-item">Point-to-point navigation system</div>
                 <div class="highlight-item">Revit API integration</div>
-                <div class="highlight-item">3D spatial awareness</div>
-                <div class="highlight-item">Obstacle avoidance algorithms</div>
+                <div class="highlight-item">Proof-of-Concept</div>
+                <div class="highlight-item">Collision-free algorithm</div>
               </div>
 
               <div class="project-metrics">
@@ -466,13 +493,39 @@
               </div>
 
               <div class="project-actions">
-                <a href="#" class="action-btn primary">Documentation</a>
-                <a href="#" class="action-btn">Demo Video</a>
+                <a href="#" class="action-btn primary">Nothing available - active research</a>
               </div>
 
               <div class="project-timeline">
                 <span>November - December 2024</span>
                 <span>Academic Project</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Card 7 - More coming soon -->
+          <div class="project-card">
+            <div class="project-header">
+              <img src="jmfc.avif" alt="soccer player lifting a trophy" class="project-image">
+              <div class="project-overlay">
+                <h3 class="project-title">more coming soon!</h3>
+                <span class="project-status">Ongoing</span>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <p class="project-description">
+                I am constantly learning and always have a project going on.
+              </p>
+
+              <div class="project-actions">
+                <a href="https://en.wikipedia.org/wiki/James_Milner" target="_blank" class="action-btn primary">Nothing
+                  here</a>
+              </div>
+
+              <div class="project-timeline">
+                <span>June 2005- Present</span>
+                <span>Personal Project</span>
               </div>
             </div>
           </div>
@@ -499,33 +552,77 @@
           <!-- Frontend Card -->
           <div class="skill-card" data-skill-card="frontend">
             <h3>frontend</h3>
-            <div class="skill-row"><span>HTML/CSS</span>
-              <div class="level l4">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">HTML/CSS</div>
+                <div class="skill-experience">7 months • Responsive Design, Animations, Class Organization</div>
               </div>
-            </div>
-            <div class="skill-row"><span>javascript</span>
               <div class="level l3">
-                <div></div>
-                <div></div>
-                <div></div>
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Advanced</span>
               </div>
             </div>
-            <div class="skill-row"><span>react</span>
-              <div class="level l4">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">JavaScript</div>
+                <div class="skill-experience">6 months • DOM Manipulation, Event Handling, Scroll Interactions</div>
               </div>
-            </div>
-            <div class="skill-row"><span>flask</span>
               <div class="level l2">
-                <div></div>
-                <div></div>
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">React</div>
+                <div class="skill-experience">3 months • Hooks, Context, State Management</div>
+              </div>
+              <div class="level l2">
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">anime.js</div>
+                <div class="skill-experience">2 months • Scroll-triggered Animations, UI Interactions</div>
+              </div>
+              <div class="level l2">
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+            </div>
+
+            <div class="skill-projects">
+              <div class="skill-projects-title">Used In Projects</div>
+              <div class="project-tags">
+                <span class="project-tag">Pomodoro Timer</span>
+                <span class="project-tag">Portfolio Site</span>
+                <span class="project-tag">Social Media Wisdom</span>
               </div>
             </div>
           </div>
@@ -533,32 +630,94 @@
           <!-- Backend Card -->
           <div class="skill-card" data-skill-card="backend">
             <h3>backend</h3>
-            <div class="skill-row"><span>java</span>
-              <div class="level l4">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">Java</div>
+                <div class="skill-experience">2 years • Data Structures, Algorithms, OOP Design</div>
               </div>
-            </div>
-            <div class="skill-row"><span>python</span>
               <div class="level l3">
-                <div></div>
-                <div></div>
-                <div></div>
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Advanced</span>
               </div>
             </div>
-            <div class="skill-row"><span>C#</span>
-              <div class="level l3">
-                <div></div>
-                <div></div>
-                <div></div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">Python</div>
+                <div class="skill-experience">1 year • Data Analysis, Web Apps, Research Applications</div>
               </div>
-            </div>
-            <div class="skill-row"><span>C</span>
               <div class="level l2">
-                <div></div>
-                <div></div>
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">C#</div>
+                <div class="skill-experience">6 months • API Development, Revit Integration</div>
+              </div>
+              <div class="level l2">
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">C</div>
+                <div class="skill-experience">6 months • Memory Management, Arrays, Systems Programming</div>
+              </div>
+              <div class="level l1">
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Beginner</span>
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">Flask</div>
+                <div class="skill-experience">1 month • Basic Routing, Template Rendering</div>
+              </div>
+              <div class="level l1">
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Beginner</span>
+              </div>
+            </div>
+
+            <div class="skill-projects">
+              <div class="skill-projects-title">Used In Projects</div>
+              <div class="project-tags">
+                <span class="project-tag">Academic Coursework</span>
+                <span class="project-tag">Wheelchair Navigation</span>
+                <span class="project-tag">Social Media Wisdom</span>
+                <span class="project-tag">IoT Research</span>
               </div>
             </div>
           </div>
@@ -566,32 +725,78 @@
           <!-- UX Card -->
           <div class="skill-card" data-skill-card="UX">
             <h3>UX</h3>
-            <div class="skill-row"><span>heuristic eval.</span>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">Figma</div>
+                <div class="skill-experience">6 months • Wireframes, High-Fidelity Design, Prototypes</div>
+              </div>
+              <div class="level l3">
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+            </div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">Prototyping</div>
+                <div class="skill-experience">6 months • Interactive Prototypes, User Flow Design</div>
+              </div>
               <div class="level l2">
-                <div></div>
-                <div></div>
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Intermediate</span>
               </div>
             </div>
-            <div class="skill-row"><span>wireframing</span>
-              <div class="level l3">
-                <div></div>
-                <div></div>
-                <div></div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">User Research</div>
+                <div class="skill-experience">6 months • User Interviews, Usability Testing</div>
+              </div>
+              <div class="level l2">
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Beginner</span>
               </div>
             </div>
-            <div class="skill-row"><span>figma</span>
-              <div class="level l4">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">Heuristic Evaluation</div>
+                <div class="skill-experience">6 months • Usability Analysis, Research Methods</div>
+              </div>
+              <div class="level l2">
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Intermediate</span>
               </div>
             </div>
-            <div class="skill-row"><span>prototyping</span>
-              <div class="level l3">
-                <div></div>
-                <div></div>
-                <div></div>
+
+            <div class="skill-projects">
+              <div class="skill-projects-title">Used In Projects</div>
+              <div class="project-tags">
+                <span class="project-tag">GreenView App</span>
+                <span class="project-tag">AI Usability Research</span>
+                <span class="project-tag">Portfolio Design</span>
+                <span class="project-tag">Timer App</span>
               </div>
             </div>
           </div>
@@ -599,59 +804,157 @@
           <!-- Tools Card -->
           <div class="skill-card" data-skill-card="tools">
             <h3>tools/workflow</h3>
-            <div class="skill-row"><span>git</span>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">Git/GitHub</div>
+                <div class="skill-experience">2+ years • Version Control, Branching, Team Collaboration</div>
+              </div>
               <div class="level l3">
-                <div></div>
-                <div></div>
-                <div></div>
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Advanced</span>
               </div>
             </div>
-            <div class="skill-row"><span>docker</span>
-              <div class="level l2">
-                <div></div>
-                <div></div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">Azure</div>
+                <div class="skill-experience">3 months • Static Web Apps, Cloud Deployment</div>
+              </div>
+              <div class="level l1">
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Beginner</span>
               </div>
             </div>
-            <div class="skill-row"><span>azure</span>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">Command Line</div>
+                <div class="skill-experience">1+ year • Navigation, Git Operations, Development Setup</div>
+              </div>
               <div class="level l2">
-                <div></div>
-                <div></div>
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Intermediate</span>
               </div>
             </div>
-            <div class="skill-row"><span>bash</span>
-              <div class="level l2">
-                <div></div>
-                <div></div>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">IDE Integration</div>
+                <div class="skill-experience">2+ years • VS Code, IntelliJ, GitHub Integration</div>
+              </div>
+              <div class="level l3">
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Advanced</span>
+              </div>
+            </div>
+
+            <div class="skill-projects">
+              <div class="skill-projects-title">Used In Projects</div>
+              <div class="project-tags">
+                <span class="project-tag">All Projects</span>
+                <span class="project-tag">Academic Group DSA Project</span>
+                <span class="project-tag">Azure Deployment</span>
+                <span class="project-tag">Development Workflow</span>
               </div>
             </div>
           </div>
 
           <!-- AI Card -->
           <div class="skill-card" data-skill-card="AI">
-            <h3>AI</h3>
-            <div class="skill-row"><span>LLM APIs</span>
-              <div class="level l3">
-                <div></div>
-                <div></div>
-                <div></div>
+            <h3>AI/data</h3>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">LLM Integration</div>
+                <div class="skill-experience">6 months • Ollama API, Local Model Deployment</div>
+              </div>
+              <div class="level l2">
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Intermediate</span>
               </div>
             </div>
-            <div class="skill-row"><span>pytorch</span>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">PyTorch</div>
+                <div class="skill-experience">6 months • Neural Networks, Model Training, Research</div>
+              </div>
               <div class="level l2">
-                <div></div>
-                <div></div>
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Intermediate</span>
               </div>
             </div>
-            <div class="skill-row"><span>pandas</span>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">Data Analysis</div>
+                <div class="skill-experience">1 year • Pandas, Research Data Processing</div>
+              </div>
               <div class="level l2">
-                <div></div>
-                <div></div>
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Intermediate</span>
               </div>
             </div>
-            <div class="skill-row"><span>matplotlib</span>
+
+            <div class="skill-row">
+              <div class="skill-info">
+                <div class="skill-name">Research Applications</div>
+                <div class="skill-experience">6 months • LLM Evaluation, Comparative Analysis</div>
+              </div>
               <div class="level l2">
-                <div></div>
-                <div></div>
+                <div class="level-indicator">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+                <span class="level-text">Intermediate</span>
+              </div>
+            </div>
+
+            <div class="skill-projects">
+              <div class="skill-projects-title">Used In Projects</div>
+              <div class="project-tags">
+                <span class="project-tag">Social Media Wisdom</span>
+                <span class="project-tag">IoT Pollution Monitoring</span>
+                <span class="project-tag">AI Usability Research</span>
+                <span class="project-tag">Undergraduate Research</span>
               </div>
             </div>
           </div>
@@ -683,7 +986,23 @@
             <a href="https://github.com/ethanluchs" target=_blank>github</a>
             <a href="https://www.linkedin.com/in/ethanluchs/overlay/1743448979934/single-media-viewer/?profileId=ACoAAD5Rp2QB1DdHlQL5NFXAEigj2nxUJAKVGCo"
               target=_blank>resume</a>
-            <a href="mailto:ethanluchs@vt.edu">email</a>
+            <a href="#" onclick="copyEmail(event)">email</a>
+
+            <script>
+              function copyEmail(event) {
+                event.preventDefault();
+                navigator.clipboard.writeText('ethanluchs@vt.edu').then(() => {
+                  const link = event.target;
+                  const originalText = link.textContent;
+                  link.textContent = 'copied!';
+                  setTimeout(() => {
+                    link.textContent = originalText;
+                  }, 1500);
+                }).catch(err => {
+                  console.error('Failed to copy email: ', err);
+                });
+              }
+            </script>
           </div>
         </div>
       </div>
