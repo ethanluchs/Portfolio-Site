@@ -217,7 +217,7 @@ class GlobalBackgroundEffect {
 
     // Configuration
     this.config = {
-      maxFPS: 15,
+      maxFPS: 10,
       thresholdIncrement: 14,
       thickLineThresholdMultiple: 3,
       resolution: 10,
