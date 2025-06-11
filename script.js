@@ -48,78 +48,6 @@ window.addEventListener('scroll', checkFadeIn);
 // Initial check in case user reloads while scrolled down
 checkFadeIn();
 
-// Skill tabs functionality
-document.addEventListener("DOMContentLoaded", () => {
-  const tabs = document.querySelectorAll('.skill-tab');
-  const cards = document.querySelectorAll('.skill-card');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const selected = tab.getAttribute('data-skill');
-
-      // Highlight selected tab
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-
-      // Show matching card
-      cards.forEach(card => {
-        if (card.getAttribute('data-skill-card') === selected) {
-          card.classList.add('active');
-        } else {
-          card.classList.remove('active');
-        }
-      });
-    });
-  });
-
-  // Default tab
-  tabs[0].click();
-});
-
-// Section header animations
-document.addEventListener('DOMContentLoaded', () => {
-  // Select all section headers with fade-in class
-  const sectionHeaders = document.querySelectorAll('.section-title.fade-in');
-
-  if (sectionHeaders.length > 0) {
-    console.log('Found section headers:', sectionHeaders.length);
-
-    // Create Intersection Observer
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          console.log('Section header visible, starting animation:', entry.target.id);
-
-          // Fade in with slight upward movement
-          anime({
-            targets: entry.target,
-            opacity: [0, 1],
-            translateY: [150, 0],
-            translateX: [-150, 0],
-            duration: 1200,
-            easing: 'easeOutCubic'
-          });
-
-          // Disconnect observer for this specific header so animation only plays once
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    // Setup initial state for each header
-    sectionHeaders.forEach(header => {
-      // Initialize styles (hidden initially)
-      header.style.opacity = '0';
-      header.style.transform = 'translateY(30px)';
-
-      // Start observing
-      observer.observe(header);
-    });
-  } else {
-    console.log('No section headers found');
-  }
-});
-
 //PROJECTS MARCHING SQUARES - MODIFIED FOR GLOBAL BACKGROUND
 
 // Simple Perlin noise implementation
@@ -209,7 +137,11 @@ class GlobalBackgroundEffect {
       highlight: '#80A0FF',
       accent: '#3060FF'
     };
-    
+
+    window.addEventListener('scroll', () => {
+      this.scrollOffset = window.pageYOffset * this.parallaxStrength;
+    });
+
     // Add burstColor property - defaults to accent color
     this.burstColor = this.colors.accent;
 
@@ -339,7 +271,7 @@ class GlobalBackgroundEffect {
   setLineColor(color, updateBurst = true) {
     // Handle both hex and rgb formats
     let hexColor = color;
-    
+
     // Convert from rgb() format if needed
     if (color.startsWith('rgb')) {
       const rgbValues = color.match(/\d+/g);
@@ -348,32 +280,32 @@ class GlobalBackgroundEffect {
         hexColor = '#' + ((1 << 24) + (parseInt(r) << 16) + (parseInt(g) << 8) + parseInt(b)).toString(16).slice(1);
       }
     }
-    
+
     // Set the colors
     this.colors.base = hexColor;
-    
+
     // Generate a slightly lighter version for highlight
     const lighterColor = this.lightenColor(hexColor, 20);
     this.colors.highlight = lighterColor;
-    
+
     // When the line color changes, update the burst color too if requested
     if (updateBurst) {
       this.burstColor = hexColor;
     }
   }
-  
+
   // Helper method to create a lighter version of a color
   lightenColor(color, percent) {
     // Convert hex to RGB
     let r = parseInt(color.slice(1, 3), 16);
     let g = parseInt(color.slice(3, 5), 16);
     let b = parseInt(color.slice(5, 7), 16);
-    
+
     // Lighten
     r = Math.min(255, Math.floor(r * (1 + percent / 100)));
     g = Math.min(255, Math.floor(g * (1 + percent / 100)));
     b = Math.min(255, Math.floor(b * (1 + percent / 100)));
-    
+
     // Convert back to hex
     return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
   }
@@ -634,7 +566,7 @@ class GlobalBackgroundEffect {
 function hexToRgb(hex) {
   // Remove # if present
   hex = hex.replace(/^#/, '');
-  
+
   // Parse hex values
   let r, g, b;
   if (hex.length === 3) {
@@ -648,12 +580,12 @@ function hexToRgb(hex) {
     g = parseInt(hex.substring(2, 4), 16);
     b = parseInt(hex.substring(4, 6), 16);
   }
-  
+
   return { r, g, b };
 }
 
 function rgbToHex(rgb) {
-  return '#' + 
+  return '#' +
     ((1 << 24) + (rgb.r << 16) + (rgb.g << 8) + rgb.b)
       .toString(16)
       .slice(1);
@@ -662,13 +594,13 @@ function rgbToHex(rgb) {
 function interpolateColor(color1, color2, factor) {
   const rgb1 = typeof color1 === 'string' ? hexToRgb(color1) : color1;
   const rgb2 = typeof color2 === 'string' ? hexToRgb(color2) : color2;
-  
+
   const result = {
     r: Math.round(rgb1.r + factor * (rgb2.r - rgb1.r)),
     g: Math.round(rgb1.g + factor * (rgb2.g - rgb1.g)),
     b: Math.round(rgb1.b + factor * (rgb2.b - rgb1.b))
   };
-  
+
   return result;
 }
 
@@ -696,24 +628,24 @@ function setupSectionColorObserver() {
     // Only proceed if we have a clearly visible section
     if (mostVisibleEntry && highestRatio > 0.3) {
       const newColor = mostVisibleEntry.target.getAttribute('data-section-color');
-      
+
       if (newColor && window.backgroundEffectInstance) {
         // Get the current color before starting transition
         const currentColor = window.backgroundEffectInstance.colors.base;
-        
+
         // Only animate if the color is actually different
         if (currentColor !== newColor) {
           console.log('Changing background color to:', newColor);
-          
+
           // Setup animation with anime.js
           anime({
             duration: 1000,
             easing: 'easeInOutCubic',
-            update: function(anim) {
+            update: function (anim) {
               const progress = anim.progress / 100;
               const rgbColor = interpolateColor(currentColor, newColor, progress);
               const hexColor = rgbToHex(rgbColor);
-              
+
               window.backgroundEffectInstance.setLineColor(hexColor);
               window.backgroundEffectInstance.setBurstColor(hexColor);
             }
@@ -727,9 +659,9 @@ function setupSectionColorObserver() {
   setTimeout(() => {
     // Observe the actual section containers with their colors
     const sectionsToObserve = [
-      { selector: '.projects-container', color: '#5C6AC4' },
-      { selector: '.skill-section', color: '#00ff88' },
-      { selector: '.about-section', color: '#C547F6' }
+      { selector: '#projects', color: '#5C6AC4' },
+      { selector: '#skills', color: '#00ff88' },
+      { selector: '#about', color: '#C547F6' }
     ];
 
     sectionsToObserve.forEach(section => {
@@ -745,25 +677,25 @@ function setupSectionColorObserver() {
     const heroSection = document.querySelector('.hero-wrapper');
     if (heroSection) {
       heroSection.setAttribute('data-section-color', '#5080FF');
-      
+
       const heroObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           // More sensitive detection for hero section
           if (entry.isIntersecting && entry.intersectionRatio > 0.2) {
             const defaultColor = '#5080FF';
             console.log('Hero section visible, changing to default color:', defaultColor);
-            
+
             if (window.backgroundEffectInstance) {
               const currentColor = window.backgroundEffectInstance.colors.base;
               if (currentColor !== defaultColor) {
                 anime({
                   duration: 800,
                   easing: 'easeInOutCubic',
-                  update: function(anim) {
+                  update: function (anim) {
                     const progress = anim.progress / 100;
                     const rgbColor = interpolateColor(currentColor, defaultColor, progress);
                     const hexColor = rgbToHex(rgbColor);
-                    
+
                     window.backgroundEffectInstance.setLineColor(hexColor);
                     window.backgroundEffectInstance.setBurstColor(hexColor);
                   }
@@ -772,274 +704,445 @@ function setupSectionColorObserver() {
             }
           }
         });
-      }, { 
+      }, {
         threshold: [0.1, 0.2, 0.3, 0.5],
         rootMargin: '0px 0px -10% 0px'
       });
 
       heroObserver.observe(heroSection);
-      
+
       // ALSO observe with the main observer
       observer.observe(heroSection);
     }
   }, 100);
 }
 
-// MODIFIED: Initialize global background effect
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize the marching squares background for the entire page
-  window.backgroundEffectInstance = new GlobalBackgroundEffect('marching-squares-canvas');
-  
-  // Set up the smooth color transition observer
-  setupSectionColorObserver();
-});
+// Project Filter Class
+class ProjectFilter {
+  constructor() {
+    this.projects = document.querySelectorAll('.project-card');
+    this.filterButtons = document.querySelectorAll('.filter-btn');
+    this.projectCount = document.getElementById('projectCount');
+    this.currentFilter = 'all';
 
-// Fixed Skills Section Animation - No Overlap Issue
-// Replace your existing skills animation code with this
+    this.init();
+  }
 
-document.addEventListener('DOMContentLoaded', function() {
-    const skillTabs = document.querySelectorAll('.skill-tab');
-    const skillCards = document.querySelectorAll('.skill-card');
-    let currentCard = null;
-    let isAnimating = false; // Prevent overlapping animations
+  init() {
+    console.log('ProjectFilter initialized with', this.projects.length, 'projects');
+    console.log('Filter buttons found:', this.filterButtons.length);
 
-    // Initialize - show first card by default
-    if (skillCards.length > 0) {
-        // Hide all cards initially
-        skillCards.forEach(card => {
-            card.style.display = 'none';
-            card.classList.remove('active');
+    // Add click event listeners to filter buttons
+    this.filterButtons.forEach(button => {
+      button.addEventListener('click', (e) => {
+        console.log('Filter button clicked:', e.target.getAttribute('data-filter'));
+        const filter = e.target.getAttribute('data-filter');
+        this.filterProjects(filter);
+      });
+    });
+
+    // Initial count
+    this.updateProjectCount();
+  }
+
+  filterProjects(filter) {
+    console.log('Filtering projects by:', filter);
+
+    // Don't do anything if same filter is clicked
+    if (filter === this.currentFilter) return;
+
+    this.currentFilter = filter;
+
+    // Update active button
+    this.filterButtons.forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.getAttribute('data-filter') === filter) {
+        btn.classList.add('active');
+      }
+    });
+
+    // Determine which projects should be visible after filtering
+    const projectsToShow = [];
+
+    this.projects.forEach((project) => {
+      const categories = project.getAttribute('data-categories');
+      if (!categories) {
+        console.warn('Project missing data-categories attribute:', project);
+        return;
+      }
+
+      const categoriesArray = categories.split(',');
+      let shouldShow = false;
+
+      switch (filter) {
+        case 'all':
+          shouldShow = true;
+          break;
+        case 'development':
+          shouldShow = categoriesArray.includes('development') && !categoriesArray.includes('design');
+          break;
+        case 'design':
+          shouldShow = categoriesArray.includes('design') && !categoriesArray.includes('development');
+          break;
+        case 'both':
+          shouldShow = categoriesArray.includes('development') && categoriesArray.includes('design');
+          break;
+      }
+
+      if (shouldShow) {
+        projectsToShow.push(project);
+      }
+    });
+
+    console.log('Projects to show after filter:', projectsToShow.length);
+
+    // Phase 1: Animate out ALL projects simultaneously
+    const allProjects = Array.from(this.projects);
+
+    anime({
+      targets: allProjects,
+      opacity: 0,
+      scale: 0.85,
+      translateY: -20,
+      duration: 400,
+      delay: anime.stagger(40, { start: 0 }),
+      easing: 'easeInQuart',
+      complete: () => {
+        // Phase 2: Hide all projects and prepare for show animation
+        allProjects.forEach(project => {
+          project.style.display = 'none';
+          project.classList.add('filtered-out');
+          project.classList.remove('filtered-in');
         });
-        
-        // Show and animate first card
-        skillCards[0].classList.add('active');
-        skillTabs[0].classList.add('active');
-        currentCard = skillCards[0];
-        animateCardIn(skillCards[0], true); // true = initial load
-    }
 
-    // Animate card entrance
-    function animateCardIn(card, isInitial = false) {
-        // Ensure the card container maintains its height
-        const skillCardsContainer = document.querySelector('.skill-cards');
-        if (!isInitial && skillCardsContainer) {
-            skillCardsContainer.style.minHeight = skillCardsContainer.offsetHeight + 'px';
-        }
+        // Phase 3: Show and animate in only the projects that should be visible
+        projectsToShow.forEach((project) => {
+          project.style.display = 'block';
+          project.classList.remove('filtered-out');
+          project.classList.add('animating-in');
 
-        // Set initial state
-        anime.set(card, {
+          // Set initial state for animation
+          anime.set(project, {
             opacity: 0,
-            translateY: 30,
-            scale: 0.95,
-            display: 'flex' // Set display immediately
+            scale: 0.85,
+            translateY: 30
+          });
         });
 
-        // Animate the card in
+        // Phase 4: Animate in the visible projects with a nice stagger
         anime({
-            targets: card,
-            opacity: 1,
-            translateY: 0,
-            scale: 1,
-            duration: 600,
-            easing: 'easeOutQuart',
-            complete: function() {
-                // Reset container height after animation
-                if (!isInitial && skillCardsContainer) {
-                    skillCardsContainer.style.minHeight = '';
-                }
-                isAnimating = false;
-            }
-        });
-
-        // Animate skill rows with stagger
-        const skillRows = card.querySelectorAll('.skill-row');
-        anime.set(skillRows, {
-            opacity: 0,
-            translateX: -20
-        });
-
-        anime({
-            targets: skillRows,
-            opacity: 1,
-            translateX: 0,
-            duration: 400,
-            delay: anime.stagger(100, {start: 200}),
-            easing: 'easeOutQuart'
-        });
-
-        // Animate level dots with stagger
-        const levelDots = card.querySelectorAll('.level div');
-        anime.set(levelDots, {
-            scale: 0,
-            opacity: 0
-        });
-
-        anime({
-            targets: levelDots,
-            scale: 1,
-            opacity: 1,
-            duration: 300,
-            delay: anime.stagger(50, {start: 400}),
-            easing: 'easeOutBack'
-        });
-    }
-
-    // Animate card exit
-    function animateCardOut(card) {
-        return new Promise((resolve) => {
-            anime({
-                targets: card,
-                opacity: 0,
-                translateY: -20,
-                scale: 0.98,
-                duration: 300,
-                easing: 'easeInQuart',
-                complete: function() {
-                    card.style.display = 'none';
-                    card.classList.remove('active');
-                    resolve();
-                }
+          targets: projectsToShow,
+          opacity: 1,
+          scale: 1,
+          translateY: 0,
+          duration: 500,
+          delay: anime.stagger(100, { start: 200 }),
+          easing: 'easeOutCubic',
+          complete: () => {
+            // Clean up animation classes
+            projectsToShow.forEach(project => {
+              project.classList.remove('animating-in');
+              project.classList.add('filtered-in');
             });
+          }
         });
-    }
 
-    // Handle tab clicks
-    skillTabs.forEach((tab, index) => {
-        tab.addEventListener('click', async function() {
-            // Prevent multiple animations at once
-            if (isAnimating) return;
-            
-            const targetSkill = tab.getAttribute('data-skill');
-            const targetCard = document.querySelector(`[data-skill-card="${targetSkill}"]`);
-
-            if (targetCard && targetCard !== currentCard) {
-                isAnimating = true;
-
-                // Remove active state from all tabs
-                skillTabs.forEach(t => t.classList.remove('active'));
-                
-                // Add active state to clicked tab
-                tab.classList.add('active');
-
-                // First, animate out current card completely
-                if (currentCard) {
-                    await animateCardOut(currentCard);
-                }
-
-                // Then animate in new card
-                targetCard.classList.add('active');
-                animateCardIn(targetCard);
-                currentCard = targetCard;
-            }
-        });
+        // Update project count after a short delay
+        setTimeout(() => {
+          this.updateProjectCount();
+        }, 400);
+      }
     });
 
-    // Add hover animations to skill tabs
-    skillTabs.forEach(tab => {
-        tab.addEventListener('mouseenter', function() {
-            if (!tab.classList.contains('active') && !isAnimating) {
-                anime({
-                    targets: tab,
-                    scale: 1.05,
-                    duration: 200,
-                    easing: 'easeOutQuart'
-                });
-            }
-        });
+    // Analytics tracking (if you implement it later)
+    this.trackFilterUsage(filter);
+  }
 
-        tab.addEventListener('mouseleave', function() {
-            if (!tab.classList.contains('active') && !isAnimating) {
-                anime({
-                    targets: tab,
-                    scale: 1,
-                    duration: 200,
-                    easing: 'easeOutQuart'
-                });
-            }
-        });
+  updateProjectCount() {
+    const visibleProjects = Array.from(this.projects).filter(project => {
+      return !project.classList.contains('filtered-out');
     });
 
-    // Add hover animations to level dots
-    document.querySelectorAll('.level div').forEach(dot => {
-        dot.addEventListener('mouseenter', function() {
-            if (!isAnimating) {
-                anime({
-                    targets: this,
-                    scale: 1.1,
-                    duration: 200,
-                    easing: 'easeOutQuart'
-                });
-            }
-        });
+    if (this.projectCount) {
+      this.projectCount.textContent = visibleProjects.length;
 
-        dot.addEventListener('mouseleave', function() {
-            if (!isAnimating) {
-                anime({
-                    targets: this,
-                    scale: 1,
-                    duration: 200,
-                    easing: 'easeOutQuart'
-                });
-            }
-        });
-    });
-
-    // Intersection Observer for skills section entrance
-    const skillsSection = document.querySelector('.skill-section');
-    if (skillsSection) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // Animate skill tabs in
-                    anime({
-                        targets: '.skill-tab',
-                        opacity: [0, 1],
-                        translateX: [-30, 0],
-                        duration: 600,
-                        delay: anime.stagger(100),
-                        easing: 'easeOutQuart'
-                    });
-
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-
-        observer.observe(skillsSection);
+      // Animate the count change
+      anime({
+        targets: this.projectCount.parentElement,
+        scale: [1, 1.1, 1],
+        duration: 400,
+        easing: 'easeOutQuart'
+      });
     }
-});
+  }
 
-// Additional responsive handling (keep existing code)
-function handleSkillsResize() {
-    const skillSection = document.querySelector('.skill-section');
-    const skillCards = document.querySelectorAll('.skill-card');
-    
-    if (window.innerWidth <= 768) {
-        skillCards.forEach(card => {
-            card.style.width = '100%';
-            card.style.maxWidth = '100%';
-            card.style.minHeight = 'auto';
-        });
-    } else if (window.innerWidth <= 1024) {
-        skillCards.forEach(card => {
-            card.style.width = '90%';
-            card.style.maxWidth = '600px';
-        });
-    } else {
-        skillCards.forEach(card => {
-            card.style.width = '700px';
-            card.style.maxWidth = '700px';
-            card.style.minHeight = '420px';
-        });
-    }
+  trackFilterUsage(filter) {
+    // This would integrate with your analytics later
+    console.log(`Filter used: ${filter}`);
+
+    // Example of what you'd track:
+    // gtag('event', 'project_filter', {
+    //     filter_type: filter,
+    //     projects_shown: visibleCount
+    // });
+  }
 }
 
-window.addEventListener('resize', handleSkillsResize);
-window.addEventListener('load', handleSkillsResize);
-
-// Simple About Section Animation - Add to your script.js
-
+// CONSOLIDATED DOMContentLoaded EVENT LISTENER
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM Content Loaded');
+
+  // Initialize the marching squares background for the entire page
+  window.backgroundEffectInstance = new GlobalBackgroundEffect('marching-squares-canvas');
+  window.backgroundEffectInstance.setLineColor('#C547F6');
+  window.backgroundEffectInstance.setBurstColor('#C547F6');
+
+  // Set up the smooth color transition observer
+  setupSectionColorObserver();
+
+  // Initialize the PROJECT FILTER SYSTEM
+  const projectFilter = new ProjectFilter();
+
+  // Skills tabs functionality
+  const tabs = document.querySelectorAll('.skill-tab');
+  const cards = document.querySelectorAll('.skill-card');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const selected = tab.getAttribute('data-skill');
+
+      // Highlight selected tab
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // Show matching card
+      cards.forEach(card => {
+        if (card.getAttribute('data-skill-card') === selected) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+    });
+  });
+
+  // Default tab
+  if (tabs.length > 0) {
+    tabs[0].click();
+  }
+
+  // Section header animations
+  const sectionHeaders = document.querySelectorAll('.section-title.fade-in');
+
+  if (sectionHeaders.length > 0) {
+    console.log('Found section headers:', sectionHeaders.length);
+
+    // Create Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          console.log('Section header visible, starting animation:', entry.target.id);
+
+          // Fade in with slight upward movement
+          anime({
+            targets: entry.target,
+            opacity: [0, 1],
+            translateY: [150, 0],
+            translateX: [-150, 0],
+            duration: 1200,
+            easing: 'easeOutCubic'
+          });
+
+          // Disconnect observer for this specific header so animation only plays once
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Setup initial state for each header
+    sectionHeaders.forEach(header => {
+      // Initialize styles (hidden initially)
+      header.style.opacity = '0';
+      header.style.transform = 'translateY(30px)';
+
+      // Start observing
+      observer.observe(header);
+    });
+  }
+
+  // Add entrance animations for filter buttons
+  anime({
+    targets: '.filter-btn',
+    opacity: [0, 1],
+    translateY: [-20, 0],
+    duration: 600,
+    delay: anime.stagger(100, { start: 200 }),
+    easing: 'easeOutQuart'
+  });
+
+  // Add hover effects to filter buttons
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  filterButtons.forEach(button => {
+    button.addEventListener('mouseenter', () => {
+      if (!button.classList.contains('active')) {
+        anime({
+          targets: button,
+          scale: 1.05,
+          duration: 200,
+          easing: 'easeOutQuart'
+        });
+      }
+    });
+
+    button.addEventListener('mouseleave', () => {
+      if (!button.classList.contains('active')) {
+        anime({
+          targets: button,
+          scale: 1,
+          duration: 200,
+          easing: 'easeOutQuart'
+        });
+      }
+    });
+  });
+
+  // Skills Section Animation
+  const skillTabs = document.querySelectorAll('.skill-tab');
+  const skillCards = document.querySelectorAll('.skill-card');
+  let currentCard = null;
+  let isAnimating = false;
+
+  // Initialize - show first card by default
+  if (skillCards.length > 0) {
+    // Hide all cards initially
+    skillCards.forEach(card => {
+      card.style.display = 'none';
+      card.classList.remove('active');
+    });
+
+    // Show and animate first card
+    skillCards[0].classList.add('active');
+    skillTabs[0].classList.add('active');
+    currentCard = skillCards[0];
+    animateCardIn(skillCards[0], true); // true = initial load
+  }
+
+  // Animate card entrance
+  function animateCardIn(card, isInitial = false) {
+    // Ensure the card container maintains its height
+    const skillCardsContainer = document.querySelector('.skill-cards');
+    if (!isInitial && skillCardsContainer) {
+      skillCardsContainer.style.minHeight = skillCardsContainer.offsetHeight + 'px';
+    }
+
+    // Set initial state
+    anime.set(card, {
+      opacity: 0,
+      translateY: 30,
+      scale: 0.95,
+      display: 'flex' // Set display immediately
+    });
+
+    // Animate the card in
+    anime({
+      targets: card,
+      opacity: 1,
+      translateY: 0,
+      scale: 1,
+      duration: 600,
+      easing: 'easeOutQuart',
+      complete: function () {
+        // Reset container height after animation
+        if (!isInitial && skillCardsContainer) {
+          skillCardsContainer.style.minHeight = '';
+        }
+        isAnimating = false;
+      }
+    });
+
+    // Animate skill rows with stagger
+    const skillRows = card.querySelectorAll('.skill-row');
+    anime.set(skillRows, {
+      opacity: 0,
+      translateX: -20
+    });
+
+    anime({
+      targets: skillRows,
+      opacity: 1,
+      translateX: 0,
+      duration: 400,
+      delay: anime.stagger(100, { start: 200 }),
+      easing: 'easeOutQuart'
+    });
+
+    // Animate level dots with stagger
+    const levelDots = card.querySelectorAll('.level div');
+    anime.set(levelDots, {
+      scale: 0,
+      opacity: 0
+    });
+
+    anime({
+      targets: levelDots,
+      scale: 1,
+      opacity: 1,
+      duration: 300,
+      delay: anime.stagger(50, { start: 400 }),
+      easing: 'easeOutBack'
+    });
+  }
+
+  // Animate card exit
+  function animateCardOut(card) {
+    return new Promise((resolve) => {
+      anime({
+        targets: card,
+        opacity: 0,
+        translateY: -20,
+        scale: 0.98,
+        duration: 300,
+        easing: 'easeInQuart',
+        complete: function () {
+          card.style.display = 'none';
+          card.classList.remove('active');
+          resolve();
+        }
+      });
+    });
+  }
+
+  // Handle tab clicks
+  skillTabs.forEach((tab, index) => {
+    tab.addEventListener('click', async function () {
+      // Prevent multiple animations at once
+      if (isAnimating) return;
+
+      const targetSkill = tab.getAttribute('data-skill');
+      const targetCard = document.querySelector(`[data-skill-card="${targetSkill}"]`);
+
+      if (targetCard && targetCard !== currentCard) {
+        isAnimating = true;
+
+        // Remove active state from all tabs
+        skillTabs.forEach(t => t.classList.remove('active'));
+
+        // Add active state to clicked tab
+        tab.classList.add('active');
+
+        // First, animate out current card completely
+        if (currentCard) {
+          await animateCardOut(currentCard);
+        }
+
+        // Then animate in new card
+        targetCard.classList.add('active');
+        animateCardIn(targetCard);
+        currentCard = targetCard;
+      }
+    });
+  });
+
   // About section entrance animation
   const aboutObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -1048,8 +1151,8 @@ document.addEventListener('DOMContentLoaded', () => {
         aboutObserver.unobserve(entry.target);
       }
     });
-  }, { 
-    threshold: 0.3 
+  }, {
+    threshold: 0.3
   });
 
   const aboutSection = document.querySelector('.about-section');
@@ -1058,103 +1161,130 @@ document.addEventListener('DOMContentLoaded', () => {
     anime.set('.personal-photo, .my-title, .my-title2, .tag .item, .link-row a', {
       opacity: 0
     });
-    
+
     aboutObserver.observe(aboutSection);
   }
-});
 
-function animateAboutEntrance() {
-  const photo = document.querySelector('.personal-photo');
-  const titles = document.querySelectorAll('.my-title, .my-title2');
-  const tagItems = document.querySelectorAll('.tag .item');
-  const linkItems = document.querySelectorAll('.link-row a');
+  function animateAboutEntrance() {
+    const photo = document.querySelector('.personal-photo');
+    const titles = document.querySelectorAll('.my-title, .my-title2');
+    const tagItems = document.querySelectorAll('.tag .item');
+    const linkItems = document.querySelectorAll('.link-row a');
 
-  // Set initial states
-  anime.set(photo, {
-    opacity: 0,
-    translateX: -50,
-    scale: 0.9
-  });
+    // Set initial states
+    anime.set(photo, {
+      opacity: 0,
+      translateX: -50,
+      scale: 0.9
+    });
 
-  anime.set(titles, {
-    opacity: 0,
-    translateX: 30
-  });
+    anime.set(titles, {
+      opacity: 0,
+      translateX: 30
+    });
 
-  anime.set(tagItems, {
-    opacity: 0,
-    translateY: 20,
-    scale: 0.95
-  });
+    anime.set(tagItems, {
+      opacity: 0,
+      translateY: 20,
+      scale: 0.95
+    });
 
-  anime.set(linkItems, {
-    opacity: 0,
-    translateY: 15,
-    scale: 0.9
-  });
+    anime.set(linkItems, {
+      opacity: 0,
+      translateY: 15,
+      scale: 0.9
+    });
 
-  // Animate photo with slide and scale
-  anime({
-    targets: photo,
-    opacity: [0, 1],
-    translateX: [-50, 0],
-    scale: [0.9, 1],
-    duration: 800,
-    easing: 'easeOutExpo',
-    delay: 100
-  });
+    // Animate photo with slide and scale
+    anime({
+      targets: photo,
+      opacity: [0, 1],
+      translateX: [-50, 0],
+      scale: [0.9, 1],
+      duration: 800,
+      easing: 'easeOutExpo',
+      delay: 100
+    });
 
-  // Animate titles sliding from right
-  anime({
-    targets: titles,
-    opacity: [0, 1],
-    translateX: [30, 0],
-    duration: 600,
-    delay: anime.stagger(150, {start: 300}),
-    easing: 'easeOutQuart'
-  });
+    // Animate titles sliding from right
+    anime({
+      targets: titles,
+      opacity: [0, 1],
+      translateX: [30, 0],
+      duration: 600,
+      delay: anime.stagger(150, { start: 300 }),
+      easing: 'easeOutQuart'
+    });
 
-  // Animate tag items with staggered bounce
-  anime({
-    targets: tagItems,
-    opacity: [0, 1],
-    translateY: [20, 0],
-    scale: [0.95, 1],
-    duration: 500,
-    delay: anime.stagger(100, {start: 700}),
-    easing: 'easeOutBack'
-  });
+    // Animate tag items with staggered bounce
+    anime({
+      targets: tagItems,
+      opacity: [0, 1],
+      translateY: [20, 0],
+      scale: [0.95, 1],
+      duration: 500,
+      delay: anime.stagger(100, { start: 700 }),
+      easing: 'easeOutBack'
+    });
 
-  // Animate links with bounce effect
-  anime({
-    targets: linkItems,
-    opacity: [0, 1],
-    translateY: [15, 0],
-    scale: [0.9, 1],
-    duration: 400,
-    delay: anime.stagger(80, {start: 1200}),
-    easing: 'easeOutExpo'
-  });
+    // Animate links with bounce effect
+    anime({
+      targets: linkItems,
+      opacity: [0, 1],
+      translateY: [15, 0],
+      scale: [0.9, 1],
+      duration: 400,
+      delay: anime.stagger(80, { start: 1200 }),
+      easing: 'easeOutExpo'
+    });
+  }
 
-  
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+  // Hero section video handling
   const video = document.getElementById('heroVideo');
   const heroIntro = document.getElementById('heroIntro');
   const menuButton = document.getElementById('menuButton');
 
-  // Show everything immediately
-  anime.set(menuButton, { opacity: 1 });
-  heroIntro.classList.add('active');
-  
-  // Just handle video looping
-  video.addEventListener('ended', () => {
-    video.classList.add('blurred');
-    video.loop = true;
-    video.play();
-  });
+  if (video && heroIntro && menuButton) {
+    // Show everything immediately
+    anime.set(menuButton, { opacity: 1 });
+    heroIntro.classList.add('active');
+
+    // Just handle video looping
+    video.addEventListener('ended', () => {
+      video.classList.add('blurred');
+      video.loop = true;
+      video.play();
+    });
+  }
 });
+
+// Additional responsive handling
+function handleSkillsResize() {
+  const skillSection = document.querySelector('.skill-section');
+  const skillCards = document.querySelectorAll('.skill-card');
+
+  if (window.innerWidth <= 768) {
+    skillCards.forEach(card => {
+      card.style.width = '100%';
+      card.style.maxWidth = '100%';
+      card.style.minHeight = 'auto';
+    });
+  } else if (window.innerWidth <= 1024) {
+    skillCards.forEach(card => {
+      card.style.width = '90%';
+      card.style.maxWidth = '600px';
+    });
+  } else {
+    skillCards.forEach(card => {
+      card.style.width = '700px';
+      card.style.maxWidth = '700px';
+      card.style.minHeight = '420px';
+    });
+  }
+}
+
+window.addEventListener('resize', handleSkillsResize);
+window.addEventListener('load', handleSkillsResize);
 
 function scrollToProjects() {
   document.getElementById('projects').scrollIntoView({
