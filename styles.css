@@ -20,7 +20,7 @@ html, body {
   position: fixed;
   top: 22px;
   left: 20px;
-  z-index: 100000;
+  z-index: -5;
   cursor: pointer;
   display: none;
 }
