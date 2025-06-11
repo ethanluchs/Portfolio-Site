@@ -888,6 +888,8 @@ class ProjectFilter {
   }
 }
 
+
+
 // CONSOLIDATED DOMContentLoaded EVENT LISTENER
 document.addEventListener('DOMContentLoaded', () => {
   console.log('DOM Content Loaded');
@@ -899,6 +901,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Set up the smooth color transition observer
   setupSectionColorObserver();
+  new SectionNavigationDots();
 
   // Initialize the PROJECT FILTER SYSTEM
   const projectFilter = new ProjectFilter();
@@ -1282,6 +1285,137 @@ function handleSkillsResize() {
     });
   }
 }
+
+// Section Navigation Dots Class - Add this to your existing script.js
+
+class SectionNavigationDots {
+  constructor() {
+    this.dots = document.querySelectorAll('.nav-dot');
+    this.sections = document.querySelectorAll('.section, .hero-wrapper');
+    this.currentSection = null;
+    
+    this.init();
+  }
+
+  init() {
+    // Add click handlers to dots
+    this.dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        const sectionId = dot.getAttribute('data-section');
+        this.navigateToSection(sectionId);
+      });
+    });
+
+    // Set up intersection observer for scroll detection
+    this.setupScrollObserver();
+    
+    // Initial check for active section
+    this.updateActiveDot();
+  }
+
+  navigateToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }
+
+  setupScrollObserver() {
+    const observerOptions = {
+      threshold: [0.3, 0.6],
+      rootMargin: '-10% 0px -10% 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      let mostVisibleEntry = null;
+      let highestRatio = 0;
+
+      entries.forEach(entry => {
+        if (entry.intersectionRatio > highestRatio) {
+          highestRatio = entry.intersectionRatio;
+          mostVisibleEntry = entry;
+        }
+      });
+
+      if (mostVisibleEntry && highestRatio > 0.3) {
+        const sectionId = mostVisibleEntry.target.id;
+        this.setActiveSection(sectionId);
+      }
+    }, observerOptions);
+
+    // Observe all your sections
+    this.sections.forEach(section => {
+      observer.observe(section);
+    });
+  }
+
+  setActiveSection(sectionId) {
+    if (this.currentSection === sectionId) return;
+    
+    this.currentSection = sectionId;
+    this.updateActiveDot();
+    
+    // Update your existing background color system
+    this.updateBackgroundColor(sectionId);
+  }
+
+  updateActiveDot() {
+    // Remove active class from all dots
+    this.dots.forEach(dot => {
+      dot.classList.remove('active');
+    });
+
+    // Add active class to current section's dot
+    if (this.currentSection) {
+      const activeDot = document.querySelector(`[data-section="${this.currentSection}"]`);
+      if (activeDot) {
+        activeDot.classList.add('active');
+      }
+    }
+  }
+
+  updateBackgroundColor(sectionId) {
+    // Integration with your existing marching squares background
+    if (window.backgroundEffectInstance) {
+      let newColor;
+      
+      switch(sectionId) {
+        case 'projects':
+          newColor = '#5C6AC4';
+          break;
+        case 'skills':
+          newColor = '#00ff88';
+          break;
+        case 'about':
+          newColor = '#C547F6';
+          break;
+        default:
+          newColor = '#5080FF'; // Default/hero color
+      }
+
+      const currentColor = window.backgroundEffectInstance.colors.base;
+      
+      if (currentColor !== newColor && window.anime) {
+        anime({
+          duration: 1000,
+          easing: 'easeInOutCubic',
+          update: function (anim) {
+            const progress = anim.progress / 100;
+            const rgbColor = interpolateColor(currentColor, newColor, progress);
+            const hexColor = rgbToHex(rgbColor);
+
+            window.backgroundEffectInstance.setLineColor(hexColor);
+            window.backgroundEffectInstance.setBurstColor(hexColor);
+          }
+        });
+      }
+    }
+  }
+}
+
 
 window.addEventListener('resize', handleSkillsResize);
 window.addEventListener('load', handleSkillsResize);

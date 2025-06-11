@@ -6,7 +6,7 @@
 }
 
 html, body {
-  height: 100%;
+  height: auto;
   width: 100%;
   background-color: black;
   color: white;
@@ -22,6 +22,7 @@ html, body {
   left: 20px;
   z-index: 100000;
   cursor: pointer;
+  display: none;
 }
 
 /* Menu Overlay Styles */
@@ -35,7 +36,6 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 99991;
   display: flex;
   opacity: 0;
   pointer-events: none;
@@ -66,17 +66,6 @@ html, body {
 
 .menu-links a:hover {
   color: gray;
-}
-
-/* Scroll Indicator */
-.scroll-indicator {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 4px;
-  background-color: white;
-  width: 0%;
-  z-index: 9999;
 }
 
 /* Hero Section */
@@ -461,6 +450,7 @@ body:hover ::-webkit-scrollbar {
   position: relative;
   z-index: 2;
   background: transparent;
+  margin-bottom: -200px;
 }
 
 .skill-nav {
@@ -1186,16 +1176,32 @@ body:hover ::-webkit-scrollbar {
   }
 }
 
-/* Footer Links Styling*/
+/* Replace your existing .footer-links CSS with this: */
+
+.footer-links {
+  padding: 50px 20px;
+  margin-bottom: 0; /* Remove bottom margin */
+}
+
+.footer-links .link-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+
 .footer-links .link-row a {
   background: rgba(16, 185, 129, 0.1);
   border: 2px solid rgba(16, 185, 129, 0.3);
   color: #10B981;
-  min-width: 150px;
-  max-width: 240px;
-  max-height: 100px;
-  padding: 16px 28px;
-  font-size: 16px;
+  min-width: 120px; /* Smaller minimum width */
+  max-width: 180px; /* Smaller maximum width */
+  padding: 14px 20px;
+  font-size: 14px; /* Smaller font */
   border-radius: 12px;
   text-decoration: none;
   text-align: center;
@@ -1206,20 +1212,19 @@ body:hover ::-webkit-scrollbar {
   justify-content: center;
   gap: 8px;
   flex: 1;
-  margin-bottom: 150px;
-  margin-top: -300px;
+  white-space: nowrap; /* Prevent text wrapping */
 }
 
 .footer-links .link-row a:hover {
   background: #10B981;
   color: white;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4); /* Green shadow */
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
 }
 
 .footer-links .link-row a svg {
-  width: 20px;
-  height: 20px;
+  width: 16px; /* Smaller icons */
+  height: 16px;
   stroke: currentColor;
   transition: all 0.3s ease;
   flex-shrink: 0;
@@ -1228,6 +1233,40 @@ body:hover ::-webkit-scrollbar {
 .footer-links .link-row a:hover svg {
   transform: scale(1.1);
   filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-links .link-row a {
+    min-width: 100px;
+    max-width: 140px;
+    padding: 12px 16px;
+    font-size: 12px;
+    gap: 6px;
+  }
+  
+  .footer-links .link-row a svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-links .link-row {
+    gap: 12px;
+  }
+  
+  .footer-links .link-row a {
+    min-width: 80px;
+    max-width: 110px;
+    padding: 10px 12px;
+    font-size: 11px;
+  }
+  
+  .footer-links .link-row a svg {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 /* Filter Buttons */
@@ -1387,5 +1426,61 @@ body:hover ::-webkit-scrollbar {
   
   .project-card {
     max-width: none;
+  }
+}
+
+/* Replace your existing navigation dot CSS with this: */
+
+.section-nav {
+  position: fixed;
+  left: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.nav-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-dot:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 15px currentColor;
+}
+
+/* Section-specific colors - always visible */
+.nav-dot[data-section="about"] {
+  background: #C547F6;
+  color: #C547F6;
+}
+
+.nav-dot[data-section="projects"] {
+  background: #5C6AC4;
+  color: #5C6AC4;
+}
+
+.nav-dot[data-section="skills"] {
+  background: #00ff88;
+  color: #00ff88;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .section-nav {
+    left: 20px;
+    gap: 15px;
+  }
+
+  .nav-dot {
+    width: 12px;
+    height: 12px;
   }
 }
