@@ -93,7 +93,7 @@ html, body {
   font-size: 75px;
   font-weight: 800;
   text-align: center;
-  overflow: hidden; /* Add this to contain the video */
+  overflow: hidden; /*was to contain landing vid*/
 }
 
 .hero-video {
@@ -1576,8 +1576,6 @@ body:hover ::-webkit-scrollbar {
   }
 }
 
-/* Replace your existing navigation dot CSS with this: */
-
 .section-nav {
   position: fixed;
   left: 30px;
@@ -1603,7 +1601,7 @@ body:hover ::-webkit-scrollbar {
   box-shadow: 0 0 15px currentColor;
 }
 
-/* Section-specific colors - always visible */
+/* Section-specific colors always visible */
 .nav-dot[data-section="about"] {
   background: #C547F6;
   color: #C547F6;

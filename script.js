@@ -50,7 +50,7 @@ checkFadeIn();
 
 //PROJECTS MARCHING SQUARES - MODIFIED FOR GLOBAL BACKGROUND
 
-// Simple Perlin noise implementation
+//Perlin noise implementation
 class SimplexNoise {
   constructor() {
     this.p = new Uint8Array(256);
@@ -119,7 +119,7 @@ class SimplexNoise {
   }
 }
 
-// MODIFIED: BackgroundEffect class is now global
+//BackgroundEffect class is now global
 class GlobalBackgroundEffect {
   constructor(canvasId) {
     this.canvas = document.getElementById(canvasId);
@@ -131,7 +131,6 @@ class GlobalBackgroundEffect {
     this.noise = new SimplexNoise();
     this.animationFrame = null;
 
-    // Aurora color scheme
     this.colors = {
       base: '#5080FF',
       highlight: '#80A0FF',
@@ -168,10 +167,10 @@ class GlobalBackgroundEffect {
     this.resize();
     window.addEventListener('resize', () => this.resize());
 
-    // MODIFIED: Always animate since it's a global background
+    //Always animate since it's a global background
     this.animate();
 
-    // MODIFIED: Add mouse event listeners to document body instead of specific section
+    //Add mouse event listeners to document body instead of specific section
     document.body.addEventListener('mousemove', (e) => {
       const rect = this.canvas.getBoundingClientRect();
       // Only react to mouse movements if they're over the canvas area
@@ -604,8 +603,6 @@ function interpolateColor(color1, color2, factor) {
   return result;
 }
 
-// Fixed setupSectionColorObserver function - replace the existing one in your script.js
-
 function setupSectionColorObserver() {
   const observerOptions = {
     threshold: [0, 0.1, 0.3, 0.5, 0.7, 0.9],
@@ -673,7 +670,7 @@ function setupSectionColorObserver() {
       }
     });
 
-    // Hero section observer with more aggressive detection
+    // Not used anymore removed hero section
     const heroSection = document.querySelector('.hero-wrapper');
     if (heroSection) {
       heroSection.setAttribute('data-section-color', '#5080FF');
@@ -877,14 +874,8 @@ class ProjectFilter {
   }
 
   trackFilterUsage(filter) {
-    // This would integrate with your analytics later
+    //for later
     console.log(`Filter used: ${filter}`);
-
-    // Example of what you'd track:
-    // gtag('event', 'project_filter', {
-    //     filter_type: filter,
-    //     projects_shown: visibleCount
-    // });
   }
 }
 
@@ -1286,7 +1277,7 @@ function handleSkillsResize() {
   }
 }
 
-// Section Navigation Dots Class - Add this to your existing script.js
+//Section Navigation Dots Class
 
 class SectionNavigationDots {
   constructor() {
