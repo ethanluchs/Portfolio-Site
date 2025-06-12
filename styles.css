@@ -440,7 +440,7 @@ body:hover ::-webkit-scrollbar {
 .project-card:nth-child(6) { animation-delay: 0.6s; }
 .project-card:nth-child(7) { animation-delay: 0.7s; }
 
-/* Enhanced Skills Section */
+/* Enhanced Skills Section - Mobile Responsive */
 .skill-section {
   display: flex;
   justify-content: flex-start;
@@ -453,40 +453,6 @@ body:hover ::-webkit-scrollbar {
   margin-bottom: -200px;
 }
 
-.skill-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  font-size: 36px;
-  font-weight: 700;
-  list-style: none;
-  padding-left: 80px;
-  margin-top: 40px;
-}
-
-.skill-tab {
-  cursor: pointer;
-  transition: all 0.3s ease;
-  color: rgba(255, 255, 255, 0.6);
-  padding: 12px 20px;
-  border-radius: 8px;
-  position: relative;
-  border: 2px solid transparent;
-}
-
-.skill-tab:hover {
-  color: rgba(255, 255, 255, 0.8);
-  background: rgba(0, 255, 136, 0.05);
-  border-color: rgba(0, 255, 136, 0.2);
-}
-
-.skill-tab.active {
-  color: #00ff88;
-  background: rgba(0, 255, 136, 0.1);
-  border-color: #00ff88;
-  box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
-}
-
 .skill-cards {
   display: flex;
   flex-direction: column;
@@ -495,6 +461,8 @@ body:hover ::-webkit-scrollbar {
   margin: 0 auto;
   margin-top: 40px;
   gap: 10px;
+  width: 100%;
+  max-width: 750px;
 }
 
 .skill-card {
@@ -507,107 +475,134 @@ body:hover ::-webkit-scrollbar {
   justify-content: flex-start;
   gap: 25px;
   font-size: 24px;
-  width: 750px;
+  width: 100%;
   max-width: 750px;
   min-height: 450px;
   border-radius: 16px;
   box-shadow: 0 10px 40px rgba(0, 255, 136, 0.2);
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
-.skill-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #00ff88, #00d87f, #00ff88);
-  background-size: 200% 100%;
-  animation: shimmer 3s ease-in-out infinite;
+/* Mobile Skills Responsive Design */
+@media (max-width: 1024px) {
+  .skill-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 40px;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .skill-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    font-size: 28px;
+    padding-left: 0;
+    margin-top: 0;
+  }
+
+  .skill-cards {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .skill-card {
+    width: 100%;
+    max-width: 600px;
+    padding: 30px 40px;
+    font-size: 22px;
+    min-height: 350px;
+  }
 }
 
-@keyframes shimmer {
-  0%, 100% { background-position: 200% 0; }
-  50% { background-position: -200% 0; }
+@media (max-width: 768px) {
+  .skill-section {
+    padding: 40px 20px;
+    gap: 30px;
+  }
+
+  .skill-nav {
+    font-size: 24px;
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .skill-cards {
+    width: 100%;
+    max-width: none;
+    padding: 0 10px;
+  }
+
+  .skill-card {
+    width: 100%;
+    max-width: none;
+    padding: 25px 20px;
+    font-size: 18px;
+    min-height: 300px;
+    margin: 0;
+  }
+
+  .skill-card h3 {
+    font-size: 36px;
+  }
+
+  .skill-name {
+    font-size: 20px;
+  }
+
+  .skill-experience {
+    font-size: 12px;
+  }
 }
 
-.skill-card.active {
-  display: flex;
-}
+@media (max-width: 480px) {
+  .skill-section {
+    padding: 30px 15px;
+    gap: 25px;
+  }
 
-.skill-card h3 {
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #00ff88;
-  text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
-}
+  .skill-nav {
+    font-size: 20px;
+    gap: 15px;
+  }
 
-.skill-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 0;
-  gap: 40px;
-  border-bottom: 1px solid rgba(0, 255, 136, 0.1);
-  transition: all 0.3s ease;
-}
+  .skill-card {
+    padding: 20px 15px;
+    font-size: 16px;
+    min-height: 250px;
+  }
 
-.skill-row:hover {
-  background: rgba(0, 255, 136, 0.05);
-  transform: translateX(5px);
-  border-radius: 8px;
-  padding-left: 10px;
-}
+  .skill-card h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
 
-.skill-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
+  .skill-name {
+    font-size: 18px;
+  }
 
-.skill-name {
-  font-size: 24px;
-  font-weight: 600;
-  text-align: left;
-  text-transform: none;
-  color: white;
-}
+  .skill-experience {
+    font-size: 11px;
+  }
 
-.skill-experience {
-  font-size: 14px;
-  color: rgba(0, 255, 136, 0.8);
-  font-weight: 500;
-}
+  .skill-row {
+    gap: 20px;
+    padding: 10px 0;
+  }
 
-.level {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
+  .level-indicator div {
+    width: 10px;
+    height: 10px;
+  }
 
-.level-indicator {
-  display: flex;
-  gap: 6px;
-}
-
-.level-indicator div {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: rgba(0, 40, 26, 0.6);
-  border: 1px solid rgba(0, 100, 70, 0.4);
-  transition: all 0.3s ease;
-}
-
-.level-text {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
-  margin-left: 10px;
-  font-weight: 500;
+  .level-text {
+    font-size: 10px;
+  }
 }
 
 .l1 .level-indicator div:nth-child(1),
@@ -1176,11 +1171,14 @@ body:hover ::-webkit-scrollbar {
   }
 }
 
-/* Replace your existing .footer-links CSS with this: */
-
+/* Enhanced Footer Links Mobile Fix */
 .footer-links {
   padding: 50px 20px;
-  margin-bottom: 0; /* Remove bottom margin */
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .footer-links .link-row {
@@ -1189,60 +1187,32 @@ body:hover ::-webkit-scrollbar {
   gap: 20px;
   width: 100%;
   justify-content: center;
-  flex-wrap: nowrap; /* Prevent wrapping */
+  align-items: center;
+  flex-wrap: nowrap;
   margin-top: 0;
   margin-bottom: 0px;
+  max-width: 600px; /* Prevent over-stretching on larger screens */
 }
 
-.footer-links .link-row a {
-  background: rgba(16, 185, 129, 0.1);
-  border: 2px solid rgba(16, 185, 129, 0.3);
-  color: #10B981;
-  min-width: 120px; /* Smaller minimum width */
-  max-width: 180px; /* Smaller maximum width */
-  padding: 14px 20px;
-  font-size: 14px; /* Smaller font */
-  border-radius: 12px;
-  text-decoration: none;
-  text-align: center;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  flex: 1;
-  white-space: nowrap; /* Prevent text wrapping */
-}
-
-.footer-links .link-row a:hover {
-  background: #10B981;
-  color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
-}
-
-.footer-links .link-row a svg {
-  width: 16px; /* Smaller icons */
-  height: 16px;
-  stroke: currentColor;
-  transition: all 0.3s ease;
-  flex-shrink: 0;
-}
-
-.footer-links .link-row a:hover svg {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.3));
-}
-
-/* Responsive adjustments */
+/* Mobile specific footer adjustments */
 @media (max-width: 768px) {
+  .footer-links {
+    padding: 40px 15px;
+  }
+  
+  .footer-links .link-row {
+    gap: 12px;
+    max-width: 100%;
+    justify-content: center;
+  }
+  
   .footer-links .link-row a {
-    min-width: 100px;
-    max-width: 140px;
+    min-width: 80px;
+    max-width: 120px;
     padding: 12px 16px;
     font-size: 12px;
     gap: 6px;
+    flex: 0 1 auto; /* Allow items to shrink but not grow */
   }
   
   .footer-links .link-row a svg {
@@ -1252,15 +1222,22 @@ body:hover ::-webkit-scrollbar {
 }
 
 @media (max-width: 480px) {
+  .footer-links {
+    padding: 30px 10px;
+  }
+  
   .footer-links .link-row {
-    gap: 12px;
+    gap: 8px;
+    flex-wrap: wrap; /* Allow wrapping on very small screens */
+    justify-content: center;
   }
   
   .footer-links .link-row a {
-    min-width: 80px;
-    max-width: 110px;
+    min-width: 70px;
+    max-width: 100px;
     padding: 10px 12px;
     font-size: 11px;
+    flex: 0 0 auto; /* Prevent flex grow/shrink */
   }
   
   .footer-links .link-row a svg {

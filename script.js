@@ -152,7 +152,7 @@ class GlobalBackgroundEffect {
       maxFPS: 10,
       thresholdIncrement: 14,
       thickLineThresholdMultiple: 3,
-      resolution: 10,
+      resolution: 8,
       baseZOffset: 0.0005
     };
 
