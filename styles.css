@@ -295,6 +295,7 @@ body:hover ::-webkit-scrollbar {
   line-height: 1.5;
   margin-bottom: 20px;
   color: #e0e0e0;
+  font-weight: 150;
 }
 
 /* Key Features/Highlights */
@@ -1176,6 +1177,13 @@ body:hover ::-webkit-scrollbar {
   font-weight: 400;
 }
 
+.info-texthighlight {
+  font-size: 24px;
+  line-height: 1.5;
+  color: white;
+  font-weight: 400;
+}
+
 .info-highlight {
   color: #C547F6;
   font-weight: 600;
@@ -1206,6 +1214,10 @@ body:hover ::-webkit-scrollbar {
   }
 
   .info-text {
+    font-size: 20px;
+  }
+
+  .info-texthighlight {
     font-size: 20px;
   }
 }
@@ -1426,9 +1438,6 @@ body:hover ::-webkit-scrollbar {
 }
 
 .filter-btn {
-  background: rgba(92, 106, 196, 0.1);
-  border: 2px solid rgba(92, 106, 196, 0.3);
-  color: #7e8fff;
   padding: 12px 24px;
   border-radius: 8px;
   font-size: 16px;
@@ -1437,24 +1446,108 @@ body:hover ::-webkit-scrollbar {
   transition: all 0.3s ease;
   text-transform: lowercase;
   letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.filter-btn:hover {
+/* All projects button - always purple outline */
+.filter-btn[data-filter="all"] {
+  background: rgba(99, 102, 241, 0.1);
+  border: 2px solid rgba(99, 102, 241, 0.3);
+}
+
+.filter-btn[data-filter="all"]:hover:not(.active) {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.filter-btn[data-filter="all"].active {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  border-color: #6366f1;
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+
+.filter-btn[data-filter="all"].active:hover {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  border-color: #7c3aed;
+}
+
+/* Development button - always blue outline */
+.filter-btn[data-filter="development"] {
+  background: rgba(92, 106, 196, 0.1);
+  border: 2px solid rgba(92, 106, 196, 0.3);
+}
+
+.filter-btn[data-filter="development"]:hover:not(.active) {
   background: rgba(92, 106, 196, 0.2);
+  border-color: rgba(92, 106, 196, 0.5);
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(92, 106, 196, 0.3);
 }
 
-.filter-btn.active {
+.filter-btn[data-filter="development"].active {
   background: #5C6AC4;
   color: white;
   border-color: #5C6AC4;
   box-shadow: 0 0 20px rgba(92, 106, 196, 0.4);
 }
 
-.filter-btn.active:hover {
+.filter-btn[data-filter="development"].active:hover {
   background: #7586f7;
   border-color: #7586f7;
+}
+
+/* Design button - always pink outline */
+.filter-btn[data-filter="design"] {
+  background: rgba(197, 71, 246, 0.1);
+  border: 2px solid rgba(197, 71, 246, 0.3);
+}
+
+.filter-btn[data-filter="design"]:hover:not(.active) {
+  background: rgba(197, 71, 246, 0.2);
+  border-color: rgba(197, 71, 246, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(197, 71, 246, 0.3);
+}
+
+.filter-btn[data-filter="design"].active {
+  background: #C547F6;
+  color: white;
+  border-color: #C547F6;
+  box-shadow: 0 0 20px rgba(197, 71, 246, 0.4);
+}
+
+.filter-btn[data-filter="design"].active:hover {
+  background: #9333ea;
+  border-color: #9333ea;
+}
+
+/* Full-stack UX button - always gradient outline */
+/* Full-stack UX button - gradient background with solid border */
+.filter-btn[data-filter="both"] {
+  background: linear-gradient(135deg, rgba(92, 106, 196, 0.1), rgba(197, 71, 246, 0.1));
+  border: 2px solid rgba(197, 71, 246, 0.4);
+}
+
+.filter-btn[data-filter="both"]:hover:not(.active) {
+  background: linear-gradient(135deg, rgba(92, 106, 196, 0.2), rgba(197, 71, 246, 0.2));
+  border-color: rgba(197, 71, 246, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(92, 106, 196, 0.2), 0 4px 15px rgba(197, 71, 246, 0.2);
+}
+
+.filter-btn[data-filter="both"].active {
+  background: linear-gradient(135deg, #5C6AC4, #C547F6);
+  color: white;
+  border: 2px solid transparent;
+  box-shadow: 0 0 20px rgba(92, 106, 196, 0.3), 0 0 20px rgba(197, 71, 246, 0.3);
+}
+
+.filter-btn[data-filter="both"].active:hover {
+  background: linear-gradient(135deg, #7586f7, #9333ea);
+  border: 2px solid transparent;
 }
 
 /* Filter Count */
@@ -1470,9 +1563,9 @@ body:hover ::-webkit-scrollbar {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 30px;
-  max-width: 1400px;
+  max-width: 1800px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
 /* Update your existing project card */
@@ -1627,5 +1720,230 @@ body:hover ::-webkit-scrollbar {
   .nav-dot {
     width: 12px;
     height: 12px;
+  }
+}
+
+/* DESKTOP CONTENT SCALING - Add these rules to your CSS */
+
+/* Large Desktop Screens (1600px+) */
+@media (min-width: 1600px) {
+  
+  /* PROJECTS: Make cards bigger and use more columns */
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); /* Bigger cards */
+    max-width: 2400px; /* Much wider grid */
+    gap: 50px;
+    padding: 0 80px;
+  }
+  
+  .project-card {
+    min-height: 750px; /* Taller cards */
+  }
+  
+  .project-content {
+    padding: 35px; /* More padding inside cards */
+  }
+  
+  .project-title {
+    font-size: 1.8rem; /* Bigger titles */
+  }
+  
+  .project-description {
+    font-size: 1.2rem; /* Bigger text */
+    line-height: 1.6;
+  }
+  
+  /* SKILLS: Make the entire section bigger */
+  .skill-section {
+    padding: 150px 200px;
+    gap: 160px;
+  }
+  
+  .skill-nav {
+    font-size: 48px; /* Much bigger navigation */
+    gap: 60px;
+  }
+  
+  .skill-card {
+    width: 900px; /* Much wider cards */
+    max-width: 900px;
+    min-height: 600px; /* Taller cards */
+    padding: 60px 70px; /* More padding */
+  }
+  
+  .skill-card h3 {
+    font-size: 56px; /* Bigger headings */
+  }
+  
+  .skill-name {
+    font-size: 32px; /* Bigger skill names */
+  }
+  
+  .skill-experience {
+    font-size: 18px; /* Bigger experience text */
+  }
+  
+  /* ABOUT: Scale up the entire section */
+  .about-section {
+    padding: 120px 200px;
+    gap: 180px;
+  }
+  
+  .about-sidebar {
+    width: 550px; /* Wider sidebar */
+  }
+  
+  .personal-photo {
+    width: 450px; /* Much bigger photo */
+    height: 450px;
+  }
+  
+  .my-title {
+    font-size: 64px; /* Much bigger name */
+  }
+  
+  .my-title2 {
+    font-size: 24px; /* Bigger subtitle */
+  }
+  
+  .info-text,
+  .info-texthighlight {
+    font-size: 32px; /* Much bigger body text */
+    line-height: 1.5;
+  }
+  
+  .info-label {
+    font-size: 18px; /* Bigger labels */
+  }
+  
+  .link-row a {
+    padding: 16px 24px; /* Bigger buttons */
+    font-size: 18px;
+  }
+  
+  /* SECTION TITLES: Make them huge */
+  .section-title {
+    font-size: 180px; /* Massive titles */
+    margin: 80px 100px 150px 20px;
+  }
+  
+  /* FILTER BUTTONS: Scale them up */
+  .filter-btn {
+    padding: 16px 32px; /* Bigger buttons */
+    font-size: 20px;
+  }
+  
+  .filter-count {
+    font-size: 18px; /* Bigger count text */
+    margin-bottom: 50px;
+  }
+}
+
+/* Ultra-wide Screens (2000px+) */
+@media (min-width: 2000px) {
+  
+  /* PROJECTS: Even bigger for ultra-wide */
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(600px, 1fr)); /* Even bigger cards */
+    max-width: 2800px;
+    gap: 60px;
+    padding: 0 100px;
+  }
+  
+  .project-card {
+    min-height: 850px; /* Even taller */
+  }
+  
+  .project-title {
+    font-size: 2.2rem;
+  }
+  
+  .project-description {
+    font-size: 1.4rem;
+  }
+  
+  /* SKILLS: Scale up more */
+  .skill-section {
+    padding: 200px 300px;
+    gap: 200px;
+  }
+  
+  .skill-nav {
+    font-size: 56px;
+    gap: 80px;
+  }
+  
+  .skill-card {
+    width: 1100px;
+    max-width: 1100px;
+    min-height: 700px;
+    padding: 80px 90px;
+  }
+  
+  .skill-card h3 {
+    font-size: 64px;
+  }
+  
+  .skill-name {
+    font-size: 36px;
+  }
+  
+  /* ABOUT: Scale everything bigger */
+  .about-section {
+    padding: 150px 300px;
+    gap: 220px;
+  }
+  
+  .about-sidebar {
+    width: 650px;
+  }
+  
+  .personal-photo {
+    width: 550px;
+    height: 550px;
+  }
+  
+  .my-title {
+    font-size: 80px;
+  }
+  
+  .info-text,
+  .info-texthighlight {
+    font-size: 38px;
+  }
+  
+  .section-title {
+    font-size: 220px; /* Huge titles */
+    margin: 100px 120px 180px 20px;
+  }
+}
+
+/* 4K Screens (2560px+) */
+@media (min-width: 2560px) {
+  
+  .projects-grid {
+    grid-template-columns: repeat(5, 1fr); /* Fixed 5 columns on 4K */
+    max-width: 3200px;
+    gap: 80px;
+    padding: 0 120px;
+  }
+  
+  .project-card {
+    min-height: 950px;
+  }
+  
+  .skill-card {
+    width: 1300px;
+    max-width: 1300px;
+    min-height: 800px;
+  }
+  
+  .personal-photo {
+    width: 650px;
+    height: 650px;
+  }
+  
+  .section-title {
+    font-size: 280px; /* Massive for 4K */
   }
 }
