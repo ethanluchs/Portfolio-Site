@@ -152,7 +152,7 @@ class GlobalBackgroundEffect {
       thresholdIncrement: 14,
       thickLineThresholdMultiple: 3,
       resolution: 8,
-      baseZOffset: 0.0005
+      baseZOffset: 0.0001
     };
 
     this.init();
