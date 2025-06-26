@@ -152,7 +152,7 @@ class GlobalBackgroundEffect {
       thresholdIncrement: 14,
       thickLineThresholdMultiple: 3,
       resolution: 8,
-      baseZOffset: 0.0001
+      baseZOffset: 0.0002
     };
 
     this.init();
@@ -1284,7 +1284,7 @@ class SectionNavigationDots {
     this.dots = document.querySelectorAll('.nav-dot');
     this.sections = document.querySelectorAll('.section, .hero-wrapper');
     this.currentSection = null;
-    
+
     this.init();
   }
 
@@ -1299,7 +1299,7 @@ class SectionNavigationDots {
 
     // Set up intersection observer for scroll detection
     this.setupScrollObserver();
-    
+
     // Initial check for active section
     this.updateActiveDot();
   }
@@ -1307,7 +1307,7 @@ class SectionNavigationDots {
   navigateToSection(sectionId) {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ 
+      section.scrollIntoView({
         behavior: 'smooth',
         block: 'start'
       });
@@ -1345,10 +1345,10 @@ class SectionNavigationDots {
 
   setActiveSection(sectionId) {
     if (this.currentSection === sectionId) return;
-    
+
     this.currentSection = sectionId;
     this.updateActiveDot();
-    
+
     // Update your existing background color system
     this.updateBackgroundColor(sectionId);
   }
@@ -1372,8 +1372,8 @@ class SectionNavigationDots {
     // Integration with your existing marching squares background
     if (window.backgroundEffectInstance) {
       let newColor;
-      
-      switch(sectionId) {
+
+      switch (sectionId) {
         case 'projects':
           newColor = '#5C6AC4';
           break;
@@ -1388,7 +1388,7 @@ class SectionNavigationDots {
       }
 
       const currentColor = window.backgroundEffectInstance.colors.base;
-      
+
       if (currentColor !== newColor && window.anime) {
         anime({
           duration: 1000,
@@ -1416,3 +1416,297 @@ function scrollToProjects() {
     behavior: 'smooth'
   });
 }
+
+// Project data
+const projectData = {
+  greenview: {
+    title: "GreenView",
+    overview: "GreenView is the result of a semester-long UX-only group project created to improve the experience of visitors at Virginia Tech's Hahn Horticulture Garden. The app enables users to identify plants using AR, navigate the garden using an interactive map, and record personal observations through a journaling feature.",
+    role: "UX Researcher & Lead Designer",
+    timeline: "January - May 2025",
+    team: "4 members (Led Phases 1-3)",
+    features: [
+      "Visual plant identification interface (AR)",
+      "Interactive Garden Map",
+      "Layered information display",
+      "Favorites and observation journal",
+      "Location-based content indicators"
+    ],
+    tech: ["Figma", "Prototyping", "User Research", "Wireframing", "Heuristic Evaluation"],
+    phases: [
+      {
+        number: 1,
+        subtitle: "Phase 1",
+        title: "Contextual Inquiry & Research",
+        description: "Led comprehensive field research including direct observation, semi-structured user interviews, and competitive analysis of plant ID apps like Seek. Used affinity diagramming and task modeling techniques to synthesize findings into actionable user needs and system requirements.",
+        outputs: {
+          title: "Key Contributions",
+          content: "<strong>Site Research:</strong> Led site observations and photo documentation<br><strong>User Insights:</strong> Designed and conducted user interviews<br><strong>Analysis:</strong> Created Work Activity Affinity Diagram (WAAD)<br><strong>Personas:</strong> Developed three core personas: Student, Academic, Hobbyist<br><strong>Requirements:</strong> Defined five key system requirements"
+        }
+      },
+      {
+        number: 2,
+        subtitle: "Phase 2",
+        title: "Design Ideation & Storyboarding",
+        description: "Generated 100+ feature ideas through collaborative ideation and critique sessions. Organized ideas into functional categories and developed design-informing models (DIMs) including hierarchical task breakdowns and step-by-step task flows that informed wireframe structure.",
+        outputs: {
+          title: "Key Deliverables",
+          content: "<strong>Models:</strong> Task models and design-informing models (DIMs)<br><strong>Wireframes:</strong> Low-fidelity wireframes for core app features<br><strong>Concepts:</strong> Conceptual metaphors: \"guided tour\" and \"garden journal\"<br><strong>Strategy:</strong> UX goals grounded in user behaviors and frustrations"
+        }
+      },
+      {
+        number: 3,
+        subtitle: "Phase 3",
+        title: "Prototyping & UX Strategy",
+        description: "Created a high-fidelity, interactive prototype in Figma focusing on the critical user path: navigating from home screen to plant scanning and journal saving. Design emphasized accessibility and clarity for outdoor environment use, with visual cues optimized for bright lighting conditions.",
+        outputs: {
+          title: "Highlights",
+          content: "<strong>Prototype:</strong> Depth-first Figma prototype with interactive walkthrough<br><strong>AR Interface:</strong> Camera interface with AR overlay and success feedback<br><strong>Information Design:</strong> Layered information display for casual and in-depth learning<br><strong>Interactions:</strong> Microinteractions aligned with key user goals"
+        }
+      },
+      {
+        number: 4,
+        subtitle: "Phase 4",
+        title: "Evaluation & Testing",
+        description: "While teammates led this phase, I contributed foundational materials that framed the heuristic evaluation process. The team used Nielsen's heuristics to guide expert evaluations, identifying usability concerns and validating design decisions through structured testing protocols.",
+        outputs: {
+          title: "Results",
+          content: "<strong>Usability:</strong> Zero critical usability issues identified<br><strong>Success Rate:</strong> 85% task completion rate in testing<br><strong>Accessibility:</strong> Positive feedback on outdoor accessibility features<br><strong>Validation:</strong> Design decisions confirmed through expert evaluation"
+        }
+      }
+    ],
+    primaryAction: {
+      text: "View Prototype",
+      url: "https://www.figma.com/proto/DVFHHJyTZrT1Gw7t8D4LI9/Untitled?node-id=0-1&t=nBWwoZK4qb00HORA-1"
+    },
+    secondaryAction: {
+      text: "Download Report",
+      url: "#"
+    }
+  },
+  pomodoro: {
+    title: "Pomodoro Study Timer",
+    overview: "Full-stack study timer application implementing the Pomodoro Technique with 25/5/15 minute work/break intervals. Built with React and deployed on Azure Static Web Apps, featuring a custom animated background and responsive design optimized for both mobile and desktop use.",
+    role: "Designer & Developer",
+    timeline: "March 2025",
+    team: "Personal Project",
+    features: [
+      "Timer display with MM:SS format",
+      "Three timer modes: Pomodoro (25min), Short Break (5min), Long Break (15min)",
+      "Session progress tracking",
+      "Visual state indicators for active/inactive states",
+      "Custom animated blob background"
+    ],
+    tech: ["React", "HTML/CSS", "JavaScript", "Figma", "Azure", "Webpack"],
+    phases: [
+      {
+        number: 1,
+        subtitle: "Phase 1",
+        title: "Motivation & Research",
+        description: "Developed this project to gain hands-on experience with Figma design workflows and React development while creating a personal productivity tool. Analyzed existing pomodoro apps for inspiration and drew from extensive personal experience using pomodoro timers.",
+        outputs: {
+          title: "Key Insights",
+          content: "<strong>Reference:</strong> Analyzed pomofocus.io for core functionality and UX patterns<br><strong>Personal Use:</strong> Drew from extensive experience using pomodoro timers<br><strong>Design Inspiration:</strong> FIFA 22 home page aesthetic for visual design language<br><strong>Requirements:</strong> Clear state management with visual feedback"
+        }
+      },
+      {
+        number: 2,
+        subtitle: "Phase 2",
+        title: "Design & Planning",
+        description: "Design-first approach using Figma to establish visual foundation before development. Single iteration design process with minimal revisions, focusing on clear state management and responsive design considerations.",
+        outputs: {
+          title: "Design Decisions",
+          content: "<strong>Tool:</strong> Figma for initial design and prototyping<br><strong>Approach:</strong> Single iteration design process<br><strong>Visual Style:</strong> FIFA 22 inspired interface with custom animated background<br><strong>Responsive Strategy:</strong> CSS-based responsive design with mobile-first considerations"
+        }
+      },
+      {
+        number: 3,
+        subtitle: "Phase 3",
+        title: "Technical Implementation",
+        description: "Built using React with custom state management and deployed via Azure Static Web Apps. Complex timer logic requiring careful tracking of current state, remaining time, and transition logic. First major React project focusing on useState and useEffect hooks.",
+        outputs: {
+          title: "Technical Achievements",
+          content: "<strong>State Management:</strong> Complex timer logic with React hooks<br><strong>UI Synchronization:</strong> Visual feedback system reflecting timer state changes<br><strong>Custom Animation:</strong> Canvas-based animated blob system with 25 floating elements<br><strong>Deployment:</strong> Successfully deployed to Azure Static Web Apps"
+        }
+      },
+      {
+        number: 4,
+        subtitle: "Phase 4",
+        title: "Testing & Refinement",
+        description: "Informal testing and community feedback leading to mobile layout improvements. Identified and resolved button alignment problems on mobile devices through redesigned positioning and spacing.",
+        outputs: {
+          title: "Improvements",
+          content: "<strong>Mobile Issues:</strong> Community feedback identified button alignment problems<br><strong>Resolution:</strong> Redesigned button positioning and spacing<br><strong>Testing:</strong> Verified functionality across multiple device sizes<br><strong>Learning:</strong> Gained experience with React development and cloud deployment"
+        }
+      }
+    ],
+    primaryAction: {
+      text: "Live Demo",
+      url: "https://salmon-moss-0c44ef41e.6.azurestaticapps.net"
+    },
+    secondaryAction: {
+      text: "GitHub",
+      url: "#"
+    }
+  },
+  portfolio: {
+    title: "Personal Portfolio Website",
+    overview: "Interactive portfolio website designed specifically for recruiters to quickly understand my interests, skills, and experience. Focused on creating a scannable, readable interface without sacrificing depth of information, recognizing that recruiters often quickly scan portfolios due to high application volumes.",
+    role: "Designer & Developer",
+    timeline: "April - June 2025",
+    team: "Personal Project",
+    features: [
+      "Custom marching squares background animation",
+      "Dynamic color transitions between sections",
+      "Responsive design supporting multiple screen sizes",
+      "Interactive project cards with overlay system",
+      "Progressive disclosure approach"
+    ],
+    tech: ["HTML/CSS", "JavaScript", "anime.js", "Figma", "Canvas API"],
+    phases: [
+      {
+        number: 1,
+        subtitle: "Phase 1",
+        title: "Research & Analysis",
+        description: "Analyzed existing portfolio examples to identify key design principles and best practices for developer portfolios. Focused on understanding what makes portfolios effective for recruiter review and rapid information processing.",
+        outputs: {
+          title: "Key Insights",
+          content: "<strong>Progressive Disclosure:</strong> Essential for managing information density<br><strong>Scannability:</strong> Clear visual hierarchy and rapid information processing<br><strong>Aesthetic Design:</strong> Consistent design language and visual cohesion<br><strong>Best Practices:</strong> Analyzed successful developer portfolios"
+        }
+      },
+      {
+        number: 2,
+        subtitle: "Phase 2",
+        title: "Design & Iteration",
+        description: "The design underwent significant iteration based on both personal reflection and community feedback. Originally planned 3 separate animations, simplified to single marching squares algorithm for cohesive design. 5+ iterations on project cards focused on readability.",
+        outputs: {
+          title: "Design Evolution",
+          content: "<strong>Background Animation:</strong> Simplified from 3 animations to single marching squares<br><strong>Project Cards:</strong> 5+ iterations focused on readability and hierarchy<br><strong>Hero Section:</strong> Redesigned for visual consistency<br><strong>Community Feedback:</strong> 2 sessions with Reddit and Discord users"
+        }
+      },
+      {
+        number: 3,
+        subtitle: "Phase 3",
+        title: "Technical Implementation",
+        description: "Developed custom solutions for performance and responsive design challenges. Marching squares animation optimized for lower-end devices, reducing from 30 fps to 10 fps. Custom color-shifting system using HTML data attributes and JavaScript.",
+        outputs: {
+          title: "Technical Solutions",
+          content: "<strong>Performance:</strong> Optimized from 30fps to 10fps for broader compatibility<br><strong>Section Transitions:</strong> Custom color-shifting using HTML data attributes<br><strong>Responsive Design:</strong> Scalable CSS with media queries for mobile to 4K<br><strong>Navigation:</strong> Replaced menu button with color-coded navigation dots"
+        }
+      },
+      {
+        number: 4,
+        subtitle: "Phase 4",
+        title: "Testing & Refinement",
+        description: "Informal user testing revealed navigation and scaling issues, leading to final refinements. Increased contrast of buttons and text, implemented progressive disclosure for projects, and refined mobile responsiveness.",
+        outputs: {
+          title: "Final Improvements",
+          content: "<strong>Contrast:</strong> Improved button and About Me section contrast<br><strong>Progressive Disclosure:</strong> Added detailed project overlays<br><strong>Element Consistency:</strong> Unified sizing and scaling across components<br><strong>Performance:</strong> Optimized for broader device compatibility"
+        }
+      }
+    ],
+    primaryAction: {
+      text: "You're Here!",
+      url: "#"
+    },
+    secondaryAction: {
+      text: "GitHub",
+      url: "https://github.com/ethanluchs/Portfolio-Site"
+    }
+  }
+};
+
+// Modal functions
+function openProjectModal(projectKey) {
+  const modal = document.getElementById('projectModal');
+  const project = projectData[projectKey];
+
+  if (!project) {
+    console.error('Project not found:', projectKey);
+    return;
+  }
+
+  // Populate modal content
+  document.getElementById('modalTitle').textContent = project.title;
+  document.getElementById('projectOverview').textContent = project.overview;
+  document.getElementById('projectRole').textContent = project.role;
+  document.getElementById('projectTimeline').textContent = project.timeline;
+  document.getElementById('projectTeam').textContent = project.team;
+
+  // Populate features
+  const featuresList = document.getElementById('keyFeatures');
+  featuresList.innerHTML = '';
+  project.features.forEach(feature => {
+    const li = document.createElement('li');
+    li.textContent = feature;
+    featuresList.appendChild(li);
+  });
+
+  // Populate tech stack
+  const techStack = document.getElementById('techStack');
+  techStack.innerHTML = '';
+  project.tech.forEach(tech => {
+    const span = document.createElement('span');
+    span.className = 'tech-tag';
+    span.textContent = tech;
+    techStack.appendChild(span);
+  });
+
+  // Populate phases
+  const phasesContainer = document.getElementById('projectPhases');
+  phasesContainer.innerHTML = '';
+  project.phases.forEach(phase => {
+    const phaseDiv = document.createElement('div');
+    phaseDiv.className = 'phase-section';
+    phaseDiv.innerHTML = `
+            <div class="phase-number">${phase.number}</div>
+            <div class="phase-subtitle">${phase.subtitle}</div>
+            <h3 class="phase-title">${phase.title}</h3>
+            <p class="phase-description">${phase.description}</p>
+            <div class="phase-outputs">
+                <div class="outputs-title">${phase.outputs.title}</div>
+                <div class="outputs-list">${phase.outputs.content}</div>
+            </div>
+        `;
+    phasesContainer.appendChild(phaseDiv);
+  });
+
+  // Set up action buttons
+  const primaryBtn = document.getElementById('primaryAction');
+  const secondaryBtn = document.getElementById('secondaryAction');
+
+  primaryBtn.textContent = project.primaryAction.text;
+  primaryBtn.href = project.primaryAction.url;
+
+  secondaryBtn.textContent = project.secondaryAction.text;
+  secondaryBtn.href = project.secondaryAction.url;
+
+  // Show modal
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+  const modal = document.getElementById('projectModal');
+  modal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside
+document.addEventListener('DOMContentLoaded', function () {
+  const modal = document.getElementById('projectModal');
+  if (modal) {
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        closeProjectModal();
+      }
+    });
+  }
+
+  // Close modal with Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeProjectModal();
+    }
+  });
+});
