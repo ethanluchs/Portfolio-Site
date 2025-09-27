@@ -149,7 +149,7 @@ class GlobalBackgroundEffect {
     // Configuration
     this.config = {
       maxFPS: 10,
-      thresholdIncrement: 14,
+      thresholdIncrement: 3,
       thickLineThresholdMultiple: 3,
       resolution: 8,
       baseZOffset: 0.0002
@@ -943,8 +943,10 @@ document.addEventListener('DOMContentLoaded', () => {
             opacity: [0, 1],
             translateY: [150, 0],
             translateX: [-150, 0],
-            duration: 1200,
-            easing: 'easeOutCubic'
+            scale: [0.5, 1.1, 1],
+            rotate: ['-90deg', '0deg'],
+            duration: 2000,
+            easing: 'easeOutElastic(1, .8)',
           });
 
           // Disconnect observer for this specific header so animation only plays once
